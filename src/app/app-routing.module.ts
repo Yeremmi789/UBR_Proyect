@@ -5,7 +5,7 @@ import { InicioComponent } from './principal/pages/inicio/inicio.component';
 import { QuienesSomosComponent } from './principal/pages/quienes-somos/quienes-somos.component';
 import { InicioSessionComponent } from './principal/pages/inicio-session/inicio-session.component';
 import { TerapeutasComponent } from './principal/pages/terapeutas/terapeutas.component';
-
+import { RegistroTrabComponent } from './principal/pages/registro-trab/registro-trab.component';
 
 const routes:Routes =[
 
@@ -27,6 +27,7 @@ const routes:Routes =[
     path:'inicio-session',
     component:InicioSessionComponent
   },
+  {path:'registrar-trabajador', component:RegistroTrabComponent},
   {
 
     path:'**',

@@ -5,8 +5,21 @@
   padding: 0;
 }
 
+#mover_navbar{
+  position: relative;
+  /* float: right; */
+  left: 85%;
+}
+
+nav{
+  background-color:#0C231E; position: fixed; width: 100%;
+  z-index: 100;
+}
+
 .navbar{
   padding: 0;
+
+  /* position: fixed; */
 }
 .navbar-nav a{
   text-decoration: none;

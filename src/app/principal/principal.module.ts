@@ -12,6 +12,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
+import { RegistroTrabComponent } from './pages/registro-trab/registro-trab.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
     InicioComponent,
     QuienesSomosComponent,
     InicioSessionComponent,
-    TerapeutasComponent
+    TerapeutasComponent,
+    RegistroTrabComponent
 
   ],
 
@@ -27,8 +29,8 @@ import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
     InicioComponent,
     QuienesSomosComponent,
     InicioSessionComponent,
-    TerapeutasComponent
-
+    TerapeutasComponent,
+    RegistroTrabComponent
   ],
 
   imports: [
