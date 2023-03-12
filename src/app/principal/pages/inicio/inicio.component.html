@@ -1,10 +1,48 @@
+<app-nav></app-nav>
+<div class="espacio_nav">
+</div>
 
-<mdb-carousel   #carousel [controls]="true" [indicators]="true"  [animation]="'slide'" [interval]="transicion_ims" [keyboard]="true" slidefade *ngIf="media.length">
-    <mdb-carousel-item *ngFor="let slide of media">
-        <img src="{{slide.imagen}}" id="imagenes-carrusel"/>
-        <div class="carousel-caption d-none d-md-block">
-            <h5>{{slide.titulo}}</h5>
-            <p>{{slide.desc}}</p>
+<div class="animated fadenIn">
+
+    <mdb-carousel #carousel [controls]="true" [indicators]="true" [animation]="'slide'" [interval]="transicion_ims"
+        [keyboard]="true" slidefade *ngIf="media.length">
+        <mdb-carousel-item *ngFor="let slide of media">
+            <img src="{{slide.imagen}}" id="imagenes-carrusel" />
+            <div class="carousel-caption d-none d-md-block">
+                <h5>{{slide.titulo}}</h5>
+                <p>{{slide.desc}}</p>
+            </div>
+        </mdb-carousel-item>
+    </mdb-carousel>
+
+    <div class="cont-maestro">
+        <div id="contenedor-titulo-inicio">
+            <h1><b>Descripción</b></h1>
         </div>
-    </mdb-carousel-item>
-</mdb-carousel>
+        <div id="contenedor-inicio1">
+            <div class="informacion-imagen-inicio1">
+                <!-- <img id="foto-inicio1" src="./assets/contenidoUBR/prueba1.jpg" alt=""> -->
+                <img id="foto-inicio1" src="./assets/img/info2.jpg" alt="">
+            </div>
+            <div class="informacion-inicio1">
+                <p>Lorem ipsum dolor sit
+                    amet consectetur adipisicing elit. Eveniet,
+                    harum. Quas, voluptatem eos cupiditate, fugiat
+                    necessitatibus repudiandae aliquid quisquam
+                    perspiciatis quos voluptas sed harum nam, nemo
+                    iusto itaque facilis vero?
+                </p>
+            </div>
+            <div class="informacion-inicio2">
+                <p>Lorem ipsum dolor sit
+                    amet consectetur adipisicing elit. Eveniet,
+                    harum. Quas, voluptatem eos cupiditate, fugiat
+                    necessitatibus repudiandae aliquid quisquam
+                    perspiciatis quos voluptas sed harum nam, nemo
+                    iusto itaque facilis vero?
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <app-footer></app-footer> -->

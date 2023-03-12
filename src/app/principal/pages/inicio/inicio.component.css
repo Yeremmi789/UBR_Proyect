@@ -9,3 +9,67 @@
     
 };
     
+.cont-maestro{
+    display: flex;
+    justify-content: center;
+    z-index: 101;
+}
+
+/* Titulo Información pagina inicio */
+#contenedor-titulo-inicio {
+    /* background: red; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 2%;
+
+    padding-left: 5%;
+    display: flex;
+    width: 100%;
+
+}
+
+/* Titulo Información pagina inicio */
+
+/* Información de la página de inicio */
+#contenedor-inicio1 {
+    /* background: #f0f000; */
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.informacion-inicio1 {
+    /* background: rgb(0, 255, 76); */
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    color: #000000;
+    padding: 3%;
+}
+
+.informacion-inicio2 {
+    /* background: #7440ee; */
+    display: flex;
+    width: 35%;
+    justify-content: center;
+    padding: 3%;
+}
+
+.informacion-imagen-inicio1 {
+    display: flex;
+    /* background: #9C223C; */
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+.informacion-imagen-inicio1 img {
+    width: 100%;
+    border-radius: 100%;
+    height: 90%;
+}
+
+/* Información de la página de inicio */
+
+

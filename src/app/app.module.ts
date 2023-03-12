@@ -8,11 +8,19 @@ import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { PersonalModule } from './Personal/personal.module';
 
 // MDB BOOTSTRAP
 // import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+
+import { AuthService } from './auth/services/auth.service';
+
+import { HttpClientModule } from '@angular/common/http';
+
 // MDB BOOTSTRAP
+import { PageErrorComponent } from './shared/page-error/page-error.component';
 
 
 @NgModule({
@@ -25,10 +33,17 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     PrincipalModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    RouterModule,
+    // importante para poder usar nuestros servicios generados 
+    HttpClientModule,
+    // importante para poder usar nuestros servicios generados 
     // MdbCarouselModule,
     MatSlideToggleModule,
+    PersonalModule
   ],
-
+  providers:[
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

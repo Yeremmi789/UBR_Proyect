@@ -1,52 +1,75 @@
 import { NgModule, Component } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanLoad } from '@angular/router';
 
 import { InicioComponent } from './principal/pages/inicio/inicio.component';
 import { QuienesSomosComponent } from './principal/pages/quienes-somos/quienes-somos.component';
 import { InicioSessionComponent } from './principal/pages/inicio-session/inicio-session.component';
 import { TerapeutasComponent } from './principal/pages/terapeutas/terapeutas.component';
 import { RegistroTrabComponent } from './principal/pages/registro-trab/registro-trab.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
-const routes:Routes =[
+import { PageErrorComponent } from './shared/page-error/page-error.component';
 
-  {
-      path:'',
-      component:InicioComponent,
-      pathMatch:'full'
-  },
-  {
-      path:'quienes-somos',
-      component:QuienesSomosComponent
-  },
+
+import { LoginComponent } from './auth/login/login.component';
+
+const routes: Routes = [
 
   {
-    path:'terapeutas',
-    component:TerapeutasComponent
+    path: '',
+    component: InicioComponent,
+    pathMatch: 'full'
   },
   {
-    path:'inicio-session',
-    component:InicioSessionComponent
+    path: 'quienes-somos',
+    component: QuienesSomosComponent
   },
-  {path:'registrar-trabajador', component:RegistroTrabComponent},
-  {
 
-    path:'**',
-    redirectTo:''
+  {
+    path: 'terapeutas',
+    canLoad: [AuthGuard],
+    component: TerapeutasComponent
+  },
+  {
+    path: 'inicio-session',
+    component: InicioSessionComponent
+  },
+  { path: 'registrar-trabajador', component: RegistroTrabComponent },
+
+  {
+    path: 'auth', loadChildren: () => import("./auth/auth.module").then(module => module.AuthModule)
+  },
+  {
+    path: 'personal', loadChildren: () => import("./Personal/personal.module").then(modulo_XD => modulo_XD.PersonalModule)
+    /*,
+    canLoad: [AuthGuard], 
+    canActivate: [AuthGuard],*/
+  },
+
+  {
+    path: '404',
+    component: PageErrorComponent
+  },
+  
+  {
+    path: '**',
+    redirectTo: '404'
   }
+
 
 ];
 
 @NgModule({
 
-    imports:[
+  imports: [
 
-      RouterModule.forRoot(routes)
-    ],
-    exports:[
-      RouterModule
-    ],
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ],
 })
 
-export class AppRoutingModule{
+export class AppRoutingModule {
 
 }

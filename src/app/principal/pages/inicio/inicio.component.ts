@@ -30,9 +30,10 @@ export class InicioComponent /*implements AfterViewInit */{
       autor:'-Valentina Jude',
     }
   ];
-  transicion_ims = 500;
+  // transicion_ims = 500;
+  transicion_ims = 4000;
 
-  @ViewChild('carousel') carousel!: MdbCarouselComponent;
+  // @ViewChild('carousel') carousel!: MdbCarouselComponent;
 
   // ngAfterViewInit(): void {
   //   this.carousel.stop();

@@ -6,17 +6,21 @@ import { FooterComponent } from './footer/footer.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
+import { PageErrorComponent } from './page-error/page-error.component';
+
 @NgModule({
   declarations: [
     NavComponent,
     FooterComponent,
-    CarouselComponent
+    CarouselComponent,
+    PageErrorComponent
   ],
 
   exports:[
     NavComponent,
     CarouselComponent,
     FooterComponent,
+    PageErrorComponent
   ],
   imports: [
     CommonModule,
