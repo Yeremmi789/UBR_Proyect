@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 // MDB BOOTSTRAP
 import { PageErrorComponent } from './shared/page-error/page-error.component';
 
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { PageErrorComponent } from './shared/page-error/page-error.component';
     PersonalModule
   ],
   providers:[
-    AuthService
+    AuthService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

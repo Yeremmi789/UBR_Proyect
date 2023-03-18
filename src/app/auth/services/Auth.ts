@@ -28,3 +28,9 @@ export interface Personal{
     email?:string;
     password?:string;
 }
+
+
+export interface DeleteToken{
+    ok:boolean;
+    message?:string;
+}

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../auth/services/auth.service';
 import { Auth } from '../../auth/services/Auth';
 
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nav',
@@ -34,7 +35,17 @@ export class NavComponent implements OnInit{
   }
 
   logout(){
-    this.rout.navigate(['/auth/login']);
+    // this.authService.logout()
+    // .subscribe(resp =>{
+    //   console.log(resp);
+    //   if(resp===true){
+    //     this.rout.navigate(['/auth/login']);
+    //   }else{
+    //     Swal.fire('Algo salio mal','Verifique sus datos, porfavor', 'error');
+    //   }
+    // });
+    this.authService.logout()
+  this.rout.navigate(['/auth/login']);
   }
 
 

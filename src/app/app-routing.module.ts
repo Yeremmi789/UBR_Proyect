@@ -41,9 +41,10 @@ const routes: Routes = [
   },
   {
     path: 'personal', loadChildren: () => import("./Personal/personal.module").then(modulo_XD => modulo_XD.PersonalModule)
-    /*,
+    ,
+    canActivate: [AuthGuard],
     canLoad: [AuthGuard], 
-    canActivate: [AuthGuard],*/
+    
   },
 
   {
