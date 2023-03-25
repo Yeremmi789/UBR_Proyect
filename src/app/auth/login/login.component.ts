@@ -41,7 +41,8 @@ export class LoginComponent implements OnInit{
 
     checkLocalStorage(){
       if(localStorage.getItem('token')){
-        this.router.navigateByUrl('/personal/mostrar');
+        // this.router.navigateByUrl('/personal/mostrar');
+        this.router.navigateByUrl('/personal/');
       }
     }
 
@@ -75,7 +76,8 @@ export class LoginComponent implements OnInit{
             //   timer: 3500
             // }),
 
-            this.router.navigateByUrl('/personal/mostrar')
+            // this.router.navigateByUrl('/personal/mostrar');
+            this.router.navigateByUrl('/personal');
             // this.router.navigateByUrl('/auth/sing-up')
           }else{
             // this.router.navigateByUrl('/auth/login')

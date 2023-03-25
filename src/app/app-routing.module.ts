@@ -13,6 +13,8 @@ import { PageErrorComponent } from './shared/page-error/page-error.component';
 
 import { LoginComponent } from './auth/login/login.component';
 
+import { PacienteComponent } from './Personal/paciente/paciente.component';
+
 const routes: Routes = [
 
   {

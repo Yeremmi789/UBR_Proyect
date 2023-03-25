@@ -43,7 +43,8 @@ export class AuthGuard implements CanLoad, CanActivate {
         tap(valid => {
           if (valid===false) {
             this.router.navigateByUrl('/auth/login');
-            Swal.fire('No autorizado','Registrese primero >:v', 'error');
+            // Swal.fire('No autorizado','Registrese primero >:v', 'error');
+            Swal.fire('No autorizado','Acceso privado', 'error');
           }
           
           // return true;

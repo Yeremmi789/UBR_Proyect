@@ -10,9 +10,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PersonalModule } from './Personal/personal.module';
 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 // MDB BOOTSTRAP
 // import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSlideToggle, MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 import { AuthService } from './auth/services/auth.service';
@@ -23,6 +25,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageErrorComponent } from './shared/page-error/page-error.component';
 
 import { CookieService } from 'ngx-cookie-service';
+import { TablesComponent } from './shared/tables/tables.component';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -40,7 +48,14 @@ import { CookieService } from 'ngx-cookie-service';
     // importante para poder usar nuestros servicios generados 
     // MdbCarouselModule,
     MatSlideToggleModule,
-    PersonalModule
+    PersonalModule,
+    MatProgressBarModule,
+    MatPaginatorModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    MatIconModule
+    
   ],
   providers:[
     AuthService,
