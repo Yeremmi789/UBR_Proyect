@@ -15,34 +15,27 @@
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="active" routerLink="">Inicio</a>
+                        <a class="nav-link" routerLinkActive="" routerLink="/personal">Inicio</a>
                     </li>
                 </ul>
 
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="active" routerLink="/quienes-somos">Conocenos</a>
+                        <a routerLink="/personal//Pacientes/listado" class="nav-link" routerLinkActive="active" >Listar Pacientes</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="terapeutas" routerLink="/terapeutas">Terapeutas</a>
+                        <a routerLink="/personal/Pacientes/ver" class="nav-link" >Ver Pacientes</a>
                     </li>
                 </ul>
 
                 <ul class="navbar-nav">
-                <!-- <ul *ngIf="Rol.roles_id !==1 || Rol.roles_id !==2" class="navbar-nav"> -->
-                <!-- <ul *ngIf="Rol.roles_id === 1 || Rol.roles_id === 2" [style.display]="'block'" class="navbar-nav"> -->
                     <li class="nav-item">
-                        <a  class="nav-link" id="inicio-session" routerLink="/auth/login">Iniciar Sesion</a>
+                        <a (click)="logout()" class="nav-link" id="inicio-session" style="cursor: pointer;">Cerrar Sesión</a>
                     </li>
                 </ul>
 
-                <!-- <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" id="registrarse" routerLink="/auth/sing-up">Registrarse</a>
-                    </li>
-                </ul> -->
             </div>
 
         </div>

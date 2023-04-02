@@ -4,6 +4,7 @@ import { AuthService } from '../../auth/services/auth.service';
 import { Auth } from '../../auth/services/Auth';
 
 import Swal from 'sweetalert2';
+import { RolesService } from 'src/app/auth/services/roles.service';
 
 @Component({
   selector: 'app-nav',
@@ -11,39 +12,39 @@ import Swal from 'sweetalert2';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit{
-
-  // auth!:Auth; //undefined
-
-  // get auth(){
-  //   return this.authService.auth;
-  // }
-  // El nombre de esta funcion GET se puede poner lo que sea, lo importante 
-  // es el contenido en el return
   get auth(){
     return this.authService.usuario;
   }
-// El nombre de esta funcion GET se puede poner lo que sea, lo importante 
-  // es el contenido en el return
 
+  Rol: any;
+  Roles: any;
+  Usuario: any;
+  
   constructor(private rout:Router,
-    private authService:AuthService){}
+    private authService:AuthService,
+    private rolesService:RolesService
+    ){}
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    
+    this.rolesService.ObtenerRoles()
+      .subscribe(r => {
+        console.log(r);
+        this.Roles = r;
+      });
+    this.rolesService.ObtenerMisDatos()
+      .subscribe(contenido => {
+        console.log(contenido);
+        this.Usuario = contenido;
+      });
+
+    this.rolesService.ObtenerMisRoles()
+      .subscribe(cont => {
+        console.log(cont);
+        this.Rol = cont;
+      });
   }
 
   logout(){
-    // this.authService.logout()
-    // .subscribe(resp =>{
-    //   console.log(resp);
-    //   if(resp===true){
-    //     this.rout.navigate(['/auth/login']);
-    //   }else{
-    //     Swal.fire('Algo salio mal','Verifique sus datos, porfavor', 'error');
-    //   }
-    // });
     this.authService.logout()
   this.rout.navigate(['/auth/login']);
   }

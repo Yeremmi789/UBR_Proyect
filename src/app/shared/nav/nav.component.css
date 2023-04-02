@@ -48,7 +48,15 @@ nav{
 }
 
 
+.active{
+  color: red;
+}
 
+
+
+.active .nav-link{
+  color: red;
+}
 
 
 

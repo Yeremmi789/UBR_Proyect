@@ -12,6 +12,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { PacienteComponent } from './paciente/paciente.component';
 import { ListadoComponent } from './pages/paciente/listado/listado.component';
 import { BienvenidaComponent } from './pages/bienvenida/bienvenida.component';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './filter/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -19,17 +22,21 @@ import { BienvenidaComponent } from './pages/bienvenida/bienvenida.component';
     PacienteComponent,
     ListadoComponent,
     BienvenidaComponent,
-    
+    FilterPipe
   ],
   imports: [
     CommonModule,
     PersonalRoutingModule,
     SharedModule,
     PersonalRoutingModule,
+    // Para usar los materiales de Angular, se necesita meter los Modulos en el archivo del modulo principal que está en cada carpeta y NO en el modulo principal del proyecto
     MatProgressBarModule,
     MatTableModule,
     MatPaginatorModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    FormsModule
+    // Para usar los materiales de Angular, se necesita meter los Modulos en el archivo del modulo principal que está en cada carpeta y NO en el modulo principal del proyecto
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

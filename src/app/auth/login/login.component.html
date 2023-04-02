@@ -5,50 +5,24 @@
 <div class="espacio_nav">
 </div>
 
-
-
 <div class="container">
-
-    <h2>Inicio V2222222</h2>
-
+    <h2>Login</h2>
     <form ngNativeValidate class="login" (ngSubmit)="login()" [formGroup]="formLogin">
-
-
         <div class="mb-4">
             <label for="text" class="form-label">Usuario</label>
             <input type="text" class="form-control" formControlName="name" placeholder="Nombre de usuario" required>
         </div>
         <div class="mb-4">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-        <div class="mb-4">
             <label for="password" class="form-label">Contraseña</label>
             <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" required>
         </div>
-
-        <!-- <div class="mb-4 form-check">
-            <label for="connected" class="form-check-label"><a href="">Aceptar Politicas de Privacidad</a></label>
-            <input type="checkbox" required name="connected" class="form-check-input">
-        </div> -->
-    
         <div>
             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-            <!-- <button (click)="login()" class="btn btn-primary">Probar datos API</button> -->
         </div>
-
         <div class="my3-3">
             <span><a class="recuperar_C" href="">Recuperar contraseña</a></span>
         </div>
-
     </form>
-
-    <!-- <button (click)="login()">Probar datos API</button>
-    <button (click)="entrar()">Ingresar nomas :v</button> -->
 </div>
 
 <app-footer></app-footer>

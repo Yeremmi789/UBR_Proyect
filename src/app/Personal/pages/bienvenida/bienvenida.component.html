@@ -1,6 +1,66 @@
-<p>bienvenida works!</p>
-<H1>Bienvenido "nombre de usuario"</H1>
+<!-- <H1>Bienvenido "nombre de usuario"</H1>
 <button (click)="logout()">Desloguear</button>
 <button routerLink="./Pacientes/ver">Ir a pacientes</button>
 <a routerLink="./Pacientes/listado">pacientes</a>
-<button>Ir a citas</button>
+<button>Ir a citas</button> -->
+<!-- ****************** -->
+
+
+<!-- <div *ngIf="Roles.includes('Admin')"> -->
+<!-- <div *ngIf="Roles[1]">
+    <h1>HOLAAAAAAAAAAAAAMUNODOOOOOOOOOOOOOOOOO</h1>
+</div> -->
+
+<!-- <div *ngIf="Roles.includes('Users')"> -->
+<!-- <div *ngIf="Roles[2]">
+    <h1>sE PUDOOOOOOOOOOOOOOOOOOOO</h1>
+</div> -->
+
+<!-- <div *ngIf="roles.Admin">
+    <h1>sE PUDOOOOOOOOOOOOOOOOOOOO</h1>
+</div> -->
+
+<app-nav-logged></app-nav-logged>
+
+<!--banner-->
+<section id="banner" class="banner" style="background-image: url('../assets/img/bg-banner.jpg');">
+    <div class="bg-color">
+
+    <a routerLink="./Pacientes/listado" class="btn btn-appoint">Mostrar Lista P.</a>
+    <a routerLink="./Pacientes/ver" class="btn btn-appoint">Ver Paciente</a>
+    <a (click)="logout()" class="btn btn-appoint">Cerrar Sesión</a>
+
+        <div class="container">
+            <div class="row">
+                <div class="banner-info">
+                    <div class="banner-logo text-center">
+                        <!-- <img src="img/logo.png" class="img-responsive"> -->
+                        <h1 *ngIf="Rol.roles_id===1"  id="Titulo1">ADMINISTRADOR</h1>
+                        <h1 id="Titulo1">Unidad Básica de Rehabilitación (UBR)</h1>
+                    </div>
+                    <div class="banner-text text-center">
+                        <h1 class="white" >Bienvenido {{Usuario.userData.name}}</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br>tempor
+                            incididunt ut
+                            labore et dolore magna aliqua.</p>
+                        <a href="#contact" class="btn btn-appoint">Abrir menu lateral</a>
+                    </div>
+                    <div class="overlay-detail text-center">
+                        <a href="#service"><i class="fa fa-angle-down"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>
+<!--/ banner-->
+<!--service-->
+
+
+<!-- <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="contactform/contactform.js"></script> -->

@@ -6,6 +6,8 @@ import { MostrarComponent } from './pages/citas/mostrar/mostrar.component';
 import { ListadoComponent } from './pages/paciente/listado/listado.component';
 import { BienvenidaComponent } from './pages/bienvenida/bienvenida.component';
 import { PageErrorComponent } from '../shared/page-error/page-error.component';
+import { RolesGuard } from '../auth/guards/roles.guard';
+import { Role } from '../_models/role';
 
 
 const routes: Routes = [
@@ -23,7 +25,10 @@ const routes: Routes = [
       {path:'Pacientes',
         children:[
           {path:'ver', component:PacienteComponent},
-          {path:'listado', component:ListadoComponent},
+          {path:'listado', component:ListadoComponent,
+          canActivate: [RolesGuard], canLoad:[RolesGuard],
+          data: {roles: [Role.Admin]}
+        },
         ]
       },
       // {path:'**', redirectTo:'mostrar'}

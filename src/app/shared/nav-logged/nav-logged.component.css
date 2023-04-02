@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#mover_navbar {
+    position: relative;
+    /* position: absolute; */
+    /* float: right; */
+    /* left: 85%; */
+    /* left: 90%; */
+    left: 100%;
+    /* left: 135%; */
+}
+
+nav {
+    background-color: #0C231E;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar {
+    padding: 0;
+
+    /* position: fixed; */
+}
+
+.navbar-nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-display: swap;
+    padding: 10px;
+    margin-left: 0px;
+    display: flex;
+    font-family: 'Montserrat';
+    font-style: 16px !important;
+}
+
+.navbar a:hover {
+    color: #B38E5D;
+}
+
+#inicio-session {
+    width: 150px;
+}
+
+.image {
+    margin-left: 20px;
+    width: 65px;
+    height: 62px;
+}
+.active{
+    background-color: red;
+}

@@ -20,22 +20,26 @@ const routes: Routes = [
   {
     path: '',
     component: InicioComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'quienes-somos',
-    component: QuienesSomosComponent
+    component: QuienesSomosComponent,
+    data: {breadcrumb: 'Quienes-Somos'},
   },
 
   {
     path: 'terapeutas',
     canLoad: [AuthGuard],
-    component: TerapeutasComponent
+    component: TerapeutasComponent,
+    data: {breadcrumb: 'Terapeutas'},
   },
   {
     path: 'inicio-session',
-    component: InicioSessionComponent
+    component: InicioSessionComponent,
+    data: {breadcrumb: 'Iniciar Sesión'},
   },
+  
   { path: 'registrar-trabajador', component: RegistroTrabComponent },
 
   {

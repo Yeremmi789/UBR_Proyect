@@ -15,6 +15,7 @@ import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
 import { RegistroTrabComponent } from './pages/registro-trab/registro-trab.component';
 
 
+
 @NgModule({
   declarations: [
     InicioComponent,

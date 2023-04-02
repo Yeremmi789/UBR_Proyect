@@ -20,6 +20,7 @@ export interface Token{
     id?:string;
     name?:string;
     email?:string;
+    roles_id?:string;
 }
 
 export interface Personal{
@@ -27,8 +28,16 @@ export interface Personal{
     name?:string;
     email?:string;
     password?:string;
+    // Quitar si la aplicación no funciona
+    roles_id?:string;
+    // Quitar si la aplicación no funciona
 }
 
+export interface Roles{
+    id?:string;
+    nombre?:string;
+
+}
 
 export interface DeleteToken{
     ok:boolean;

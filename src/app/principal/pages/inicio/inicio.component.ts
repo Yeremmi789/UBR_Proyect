@@ -1,14 +1,12 @@
-import { Component } from '@angular/core';
-import { AfterViewInit,  ViewChild } from '@angular/core';
-
-import { MdbCarouselComponent } from 'mdb-angular-ui-kit/carousel';
+import { Component, OnInit } from '@angular/core';
+import { RolesService } from 'src/app/auth/services/roles.service';
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css']
 })
-export class InicioComponent /*implements AfterViewInit */{
+export class InicioComponent implements OnInit{
   media = [
     {
       imagen: 'assets/img/portada_3.jpg',
@@ -31,17 +29,19 @@ export class InicioComponent /*implements AfterViewInit */{
     }
   ];
   // transicion_ims = 500;
-  transicion_ims = 4000;
+  transicion_ims = 3000;
 
-  // @ViewChild('carousel') carousel!: MdbCarouselComponent;
+  Rol: any;
+  constructor(private rolesService:RolesService,
+              
+    ){}
 
-  // ngAfterViewInit(): void {
-  //   this.carousel.stop();
-  // }
 
-  // onSlideChange(): void {
-  //   console.log('slide change');
-  // }
-  // (slideChange)="onSlideChange()" ---->>HTML
-
+  ngOnInit() {
+    this.rolesService.ObtenerMisRoles()
+      .subscribe(cont => {
+        console.log(cont);
+        this.Rol = cont;
+      });
+  }
 }

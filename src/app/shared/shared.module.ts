@@ -11,6 +11,10 @@ import { BarraLateralComponent } from './barra-lateral/barra-lateral.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TablesComponent } from './tables/tables.component';
 import { MatTableModule } from '@angular/material/table';
+// import { FilterPipe } from './filter/filter.pipe';
+import { FormsModule } from '@angular/forms';
+import { NavLoggedComponent } from './nav-logged/nav-logged.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +23,10 @@ import { MatTableModule } from '@angular/material/table';
     CarouselComponent,
     PageErrorComponent,
     BarraLateralComponent,
-    TablesComponent
+    TablesComponent,
+    NavLoggedComponent,
+    // FilterPipe,
+    
   ],
 
   exports:[
@@ -28,13 +35,16 @@ import { MatTableModule } from '@angular/material/table';
     FooterComponent,
     PageErrorComponent,
     BarraLateralComponent,
-    TablesComponent
+    TablesComponent,
+    NavLoggedComponent
+
   ],
   imports: [
     CommonModule,
     RouterModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

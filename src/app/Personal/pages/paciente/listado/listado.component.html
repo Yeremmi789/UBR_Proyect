@@ -1,7 +1,29 @@
-<p>listado works!</p>
+<app-nav-logged></app-nav-logged>
 <div class="centrar">
     <h1>hola mundo</h1>
     <button (click)="logout()">Cerrar Sesión</button>
+</div>
+<!-- <app-barra-lateral></app-barra-lateral> -->
+<div class="cajaOpciones">
+    <div class="cajaElementos">
+        <h1>Listado de Pacientes</h1>
+        <div class="buscador">
+            <!-- <form class="d-flex w-100">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="text" name="filterPost" [(ngModel)]="filterPost">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </nav>
+        </div>
+    </div>
+    <div class="botones">
+        <button class="agg">Agregar</button>
+        <!-- <button class="xd">xd</button> -->
+    </div>
 </div>
 
 <div class="centrar">
@@ -10,31 +32,30 @@
         <table class="table w-100">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <!-- <th scope="col">#</th> -->
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido_paterno</th>
                     <th scope="col">Apellido_materno</th>
                     <th scope="col">Edad</th>
                     <th scope="col">Telefono</th>
                     <th scope="col">Direccion</th>
-                    <th scope="col">Opciones</th>
+                    <th scope="col" *ngIf="Rol.roles_id === 1">Opciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of Paciente">
-                    <th scope="row">{{item.id}}</th>
+                <tr *ngFor="let item of Paciente | filter:filterPost">
+                    <!-- <th scope="row">{{item.id}}</th> -->
                     <td>{{item.nombre}}</td>
                     <td>{{item.apellido_paterno}}</td>
                     <td>{{item.apellido_materno}}</td>
                     <td>{{item.edad}}</td>
                     <td>{{item.telefono}}</td>
                     <td>{{item.direccion}}</td>
-                    <a mat-mini-fab matTooltip="Primary" color="primary" id="botonxd"
-                        aria-label="Example mini fab with a heart icon" 
-                        routerLink="/vista-paciente"
-                        >
-                        <mat-icon>favorite</mat-icon>
-                    </a>
+                    <td *ngIf="Rol.roles_id === 1">
+                        <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>

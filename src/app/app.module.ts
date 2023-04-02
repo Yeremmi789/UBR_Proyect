@@ -1,40 +1,40 @@
+// Sección de Modulos ---- // Sección de Modulos
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './app.component';
-import { PrincipalModule } from './principal/principal.module';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { PrincipalModule } from './principal/principal.module';
 import { PersonalModule } from './Personal/personal.module';
-
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-
-// MDB BOOTSTRAP
-// import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
-import { MatSlideToggle, MatSlideToggleModule } from '@angular/material/slide-toggle';
-
-
-import { AuthService } from './auth/services/auth.service';
-
 import { HttpClientModule } from '@angular/common/http';
+import { BreadcrumbModule } from 'angular-crumbs';
+// Sección de Modulos ---- // Sección de Modulos
 
-// MDB BOOTSTRAP
-import { PageErrorComponent } from './shared/page-error/page-error.component';
+// Componentes ---- // Componentes
+import { AppComponent } from './app.component';
+// Componentes ---- // Componentes
 
+// Navegador ---- // Navegador
 import { CookieService } from 'ngx-cookie-service';
-import { TablesComponent } from './shared/tables/tables.component';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './auth/services/auth.service';
+// Navegador ---- // Navegador
+
+//Angular Material --- //Angular Material
+import {MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatPaginatorModule } from '@angular/material/paginator';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//Angular Material --- //Angular Material
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -43,10 +43,7 @@ import {MatIconModule} from '@angular/material/icon';
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
-    // importante para poder usar nuestros servicios generados 
     HttpClientModule,
-    // importante para poder usar nuestros servicios generados 
-    // MdbCarouselModule,
     MatSlideToggleModule,
     PersonalModule,
     MatProgressBarModule,
@@ -54,13 +51,15 @@ import {MatIconModule} from '@angular/material/icon';
     FormsModule,
     ReactiveFormsModule,
     MatNativeDateModule,
-    MatIconModule
-    
+    MatIconModule,
+    MatButtonModule,
+    BreadcrumbModule
   ],
   providers:[
     AuthService,
     CookieService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
