@@ -7,7 +7,7 @@ import { MostrarComponent } from './pages/citas/mostrar/mostrar.component';
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { PacienteComponent } from './paciente/paciente.component';
 import { ListadoComponent } from './pages/paciente/listado/listado.component';

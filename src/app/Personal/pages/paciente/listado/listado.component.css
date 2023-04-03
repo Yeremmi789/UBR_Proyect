@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     /* background-color: blueviolet; */
-    justify-content: end;
+    /* justify-content: end; */
     margin-top: 30px;
 }
 
@@ -47,7 +47,7 @@
     display: flex;
     /* width: 100%; */
     /* flex-wrap: wrap; */
-    justify-content: end;
+    /* justify-content: end; */
     height: 40px;
     /* background-color: red; */
     width: 30%;

@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 
 import {AuthService} from 'src/app/auth/services/auth.service'
 import { Token } from '../services/Auth';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit{
     private authServices:AuthService,
     private contr_form:FormBuilder,
     
+    private mensaje:ToastrService
     ) {
 
       this.formLogin = this.contr_form.group({
@@ -46,17 +48,25 @@ export class LoginComponent implements OnInit{
             this.router.navigate(['/personal'])
             .then(() => {
               location.reload();
+              this.mensaje.success(":)","Bienvenido",{
+                timeOut:5000,
+                // positionClass: 'toast-top-right',
+              });
             });
           }else{
-            Swal.fire('Algo salio mal','Verifique sus datos, porfavor', 'error');
+            // Swal.fire('Algo salio mal','Verifique sus datos, porfavor', 'error');
+            this.mensaje.warning("Verifique sus datos","Algo salió mal",{
+              timeOut:10000,
+              // positionClass: 'toast-top-right',
+            });
           }
           return console.log(this.formLogin.value);
         })
       ;
   }
 
-  entrar(){
-    this.authServices.logout();
-    this.router.navigate(['/personal/mostrar']);
-  }
+  // entrar(){
+  //   this.authServices.logout();
+  //   this.router.navigate(['/personal/mostrar']);
+  // }
 }

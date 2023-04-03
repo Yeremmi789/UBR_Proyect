@@ -28,6 +28,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 //Angular Material --- //Angular Material
 
 
@@ -53,7 +54,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatNativeDateModule,
     MatIconModule,
     MatButtonModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers:[
     AuthService,

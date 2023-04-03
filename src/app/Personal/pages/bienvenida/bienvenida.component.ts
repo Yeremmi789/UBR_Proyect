@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 // Creados por mí
 import { RolesService } from '../../../auth/services/roles.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class BienvenidaComponent implements OnInit {
     // private rolesService:RolesService,
     public rolesService: RolesService,
     private http: HttpClient,
+    private mensaje:ToastrService
   ) { }
 
   // Mi plan:
@@ -98,6 +100,11 @@ export class BienvenidaComponent implements OnInit {
         this.Rol = cont;
       });
     // console.log(this.dataSource);
+
+    // this.mensaje.success(":)","Bienvenido",{
+    //   timeOut:5000,
+    //   // positionClass: 'toast-top-right',
+    // });
   }
 
   logout() {
