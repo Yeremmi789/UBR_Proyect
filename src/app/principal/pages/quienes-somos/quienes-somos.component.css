@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-.cuerpo{
+
+.cuerpo {
   padding-top: 65px;
   line-height: 1.5;
   font-size: 15px;
@@ -10,7 +11,132 @@
   font-style: normal;
   padding-bottom: 100px;
 }
-p{
+
+p {
   padding: 0;
   margin: 0 0 30px;
+}
+
+
+div .animacion {
+  width: 120px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+}
+
+@keyframes example {
+  0% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+
+  25% {
+    background-color: yellow;
+    left: 200px;
+    top: 0px;
+  }
+
+  50% {
+    background-color: blue;
+    left: 200px;
+    top: 200px;
+  }
+
+  75% {
+    background-color: green;
+    left: 0px;
+    top: 200px;
+  }
+
+  100% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+}
+
+
+/*  */
+
+.heart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.heart {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: red;
+  transform: rotate(45deg);
+  /* animation: rotate-heart 1s linear infinite;  */
+}
+
+.heart:hover{
+  /* transform: rotate(45deg); */
+  animation: rotate-heart 1s linear infinite;
+  /* width: 75px;
+  height: 75px; */
+  /* animation: heartbeat 1s infinite; */
+}
+
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: red;
+  border-radius: 25px 25px 0 25px;
+}
+
+.heart::before {
+  top: -25px;
+  left: 0;
+}
+
+
+.heart::after {
+  top: 0;
+  left: -25px;
+}
+
+
+.thank-you {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+@keyframes rotate-heart {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.thank-you:hover + .heart-container .heart {
+  animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

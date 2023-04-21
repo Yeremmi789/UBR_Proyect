@@ -1,0 +1,203 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+<!-- <app-nav></app-nav> -->
+<app-nav-logged></app-nav-logged>
+<div class="espacio_nav">
+</div>
+<div class="container" style="padding-top: 15px;">
+
+    <h2>Registrar Pacientes</h2>
+
+    <form class="row g-3 login" (ngSubmit)="procesar()" [formGroup]="formRegistro">
+
+        <div class="col-md-4 padding_XD">
+            <label class="form-label">Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
+            <div class="alert alert-danger mt-2"
+                *ngIf="formRegistro.get('nombre')?.invalid && (formRegistro.get('nombre')?.dirty || formRegistro.get('nombre')?.touched)"
+                class="alert alert-danger mt-2">
+                <div *ngIf="this.formRegistro.get('nombre')?.errors?.['required']">El campo es obligatorio.</div>
+                <div *ngIf="this.formRegistro.get('nombre')?.errors?.['pattern']">El nombre debe contener solo letras.
+                </div>
+                <div *ngIf="this.formRegistro.get('nombre')?.errors?.['minlength']">El nombre debe contener al menos 3
+                    letras</div>
+                <!-- la validacion debe estar en minusculas para se reconocido y mostrar el mensaje en la interfaz :D-->
+                <div *ngIf="this.formRegistro.get('nombre')?.errors?.['maxlength']">El campo debe excede de caracteres
+                    (30)</div>
+            </div>
+            <div *ngIf="formRegistro.get('nombre')?.valid && (formRegistro.get('nombre')?.dirty || formRegistro.get('nombre')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+
+        <div class="col-md-4 padding_XD">
+            <label class="form-label">Apellido Paterno</label>
+            <input type="text" formControlName="apellidoP" class="form-control"
+                placeholder="Ingresa el apellido paterno">
+            <div class="alert alert-danger mt-2"
+                *ngIf="formRegistro.get('apellidoP')?.invalid && (formRegistro.get('apellidoP')?.dirty || formRegistro.get('apellidoP')?.touched)"
+                class="alert alert-danger mt-2">
+                <div *ngIf="this.formRegistro.get('apellidoP')?.errors?.['required']">El campo es obligatorio.</div>
+                <div *ngIf="this.formRegistro.get('apellidoP')?.errors?.['pattern']">El nombre debe contener solo
+                    letras.</div>
+                <div *ngIf="this.formRegistro.get('apellidoP')?.errors?.['minlength']">El nombre debe contener al menos
+                    3 letras</div>
+                <!-- la validacion debe estar en minusculas para se reconocido y mostrar el mensaje en la interfaz :D-->
+                <div *ngIf="this.formRegistro.get('apellidoP')?.errors?.['maxlength']">El campo debe excede de
+                    caracteres (30)</div>
+            </div>
+            <div *ngIf="formRegistro.get('apellidoP')?.valid && (formRegistro.get('apellidoP')?.dirty || formRegistro.get('apellidoP')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+        <div class="col-md-4 padding_XD">
+            <label class="form-label">Apellido Materno</label>
+            <input type="text" formControlName="apellidoM" class="form-control"
+                placeholder="Ingresa el apellido materno">
+            <div class="alert alert-danger mt-2"
+                *ngIf="formRegistro.get('apellidoM')?.invalid && (formRegistro.get('apellidoM')?.dirty || formRegistro.get('apellidoM')?.touched)"
+                class="alert alert-danger mt-2">
+                <div *ngIf="this.formRegistro.get('apellidoM')?.errors?.['required']">El campo es obligatorio.</div>
+                <!-- <div *ngIf="this.formRegistro.get('apellidoM')?.errors?.['pattern']">El nombre debe contener solo letras.</div>
+                    <div *ngIf="this.formRegistro.get('apellidoM')?.errors?.['minlength']">El nombre debe contener al menos 3 letras</div>  -->
+                <div *ngIf="this.formRegistro.get('apellidoM')?.errors?.['minlength']">El nombre debe contener al menos
+                    3 letras</div>
+                <!-- la validacion debe estar en minusculas para se reconocido y mostrar el mensaje en la interfaz :D-->
+                <div *ngIf="this.formRegistro.get('apellidoM')?.errors?.['pattern']">El nombre debe contener solo
+                    letras.</div>
+                <div *ngIf="this.formRegistro.get('apellidoM')?.errors?.['maxlength']">El campo debe excede de
+                    caracteres (30)</div>
+            </div>
+            <div *ngIf="formRegistro.get('apellidoM')?.valid && (formRegistro.get('apellidoM')?.dirty || formRegistro.get('apellidoM')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+        <div class="col-md-6 padding_XD">
+            <label class="form-label">Edad</label>
+            <input type="number" formControlName="edad" class="form-control" placeholder="ingrese la edad del paciente">
+            <div class="alert alert-danger mt-2"
+                *ngIf="this.formRegistro.get('edad')?.invalid && ( formRegistro.get('edad')?.dirty || formRegistro.get('edad')?.touched)">
+                <div *ngIf="this.formRegistro.get('edad')?.errors?.['required']">El campo es obligatorio</div>
+                <div *ngIf="this.formRegistro.get('edad')?.errors?.['pattern']">Solo se admiten valores numéricos</div>
+                <div *ngIf="this.formRegistro.get('edad')?.errors?.['min']">No se aceptan valores negativos</div>
+                <div *ngIf="this.formRegistro.get('edad')?.errors?.['max']">Excede el límite (70)</div>
+
+            </div>
+            <div *ngIf="formRegistro.get('edad')?.valid && (formRegistro.get('edad')?.dirty || formRegistro.get('edad')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+        <div class="col-md-6 padding_XD">
+            <label class="form-label">Numero de Expediente</label>
+            <input type="text" formControlName="expediente" class="form-control " placeholder="0000/0000">
+            <div class="alert alert-danger mt-2"
+                *ngIf="formRegistro.get('expediente')?.invalid && (formRegistro.get('expediente')?.dirty || formRegistro.get('expediente')?.touched)"
+                class="alert alert-danger mt-2">
+                <div *ngIf="this.formRegistro.get('expediente')?.errors?.['required']">El campo es obligatorio.</div>
+                <div *ngIf="this.formRegistro.get('expediente')?.errors?.['pattern']">El nombre debe contener solo
+                    numeros.</div>
+                <div *ngIf="this.formRegistro.get('expediente')?.errors?.['minlength']">El nombre debe contener al menos
+                    3 letras</div>
+                <!-- la validacion debe estar en minusculas para se reconocido y mostrar el mensaje en la interfaz :D-->
+            </div>
+            <div *ngIf="formRegistro.get('expediente')?.valid && (formRegistro.get('expediente')?.dirty || formRegistro.get('expediente')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+
+        <div class="col-md-6 padding_XD">
+            <label class="form-label">Tipo</label>
+            <select formControlName="tipoABC" class="form-control " name="" id="tipoABC">
+                <option class="container-fluid" selected>Seleccione</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+            <!-- <div>Valor (id de la terapia): {{ verSeleccion}}</div> -->
+            <div class="alert alert-danger mt-2"
+                *ngIf="this.formRegistro.get('tipoABC')?.invalid && ( formRegistro.get('tipoABC')?.dirty || formRegistro.get('tipoABC')?.touched)">
+                <div *ngIf="this.formRegistro.get('tipoABC')?.errors?.['required']">Seleccion obligatoria</div>
+                <div *ngIf="this.formRegistro.get('tipoABC')?.hasError('invalidOption')">Seleción no válida</div>
+            </div>
+            <div *ngIf="formRegistro.get('tipoABC')?.valid && (formRegistro.get('tipoABC')?.dirty || formRegistro.get('tipoABC')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+        <div class="col-md-6 padding_XD">
+            <label class="form-label">Sexo</label>
+            <select formControlName="sexo" class="form-control " name="" id="sexo">
+                <option class="container-fluid" selected>Mencione género</option>
+
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+                <option value="F">No binario</option>
+                <option value="F">Prefiero no decirlo</option>
+            </select>
+
+            <div class="alert alert-danger mt-2"
+                *ngIf="this.formRegistro.get('sexo')?.invalid && ( formRegistro.get('sexo')?.dirty || formRegistro.get('sexo')?.touched)">
+                <div *ngIf="this.formRegistro.get('sexo')?.errors?.['required']">Seleccion obligatoria</div>
+                <div *ngIf="this.formRegistro.get('sexo')?.hasError('invalidOption')">Seleción no válida</div>
+            </div>
+            <div *ngIf="formRegistro.get('sexo')?.valid && (formRegistro.get('sexo')?.dirty || formRegistro.get('sexo')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+        <div class="md-4 padding_XD">
+            <label class="form-label">Dirección</label>
+            <input type="text" formControlName="direccion" class="form-control " placeholder="Dirección">
+            <div class="alert alert-danger mt-2"
+                *ngIf="formRegistro.get('direccion')?.invalid && (formRegistro.get('direccion')?.dirty || formRegistro.get('direccion')?.touched)"
+                class="alert alert-danger mt-2">
+                <div *ngIf="this.formRegistro.get('direccion')?.errors?.['required']">El campo es obligatorio.</div>
+                <!-- <div *ngIf="this.formRegistro.get('direccion')?.errors?.['pattern']">El nombre debe contener solo letras.</div> -->
+                <div *ngIf="this.formRegistro.get('direccion')?.errors?.['minlength']">El debe contener al menos 6
+                    letras</div>
+            </div>
+            <div *ngIf="formRegistro.get('direccion')?.valid && (formRegistro.get('direccion')?.dirty || formRegistro.get('direccion')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+        <div class="md-4 padding_XD">
+            <label class="form-label">Patologia</label>
+            <input type="text" formControlName="patologia" class="form-control " placeholder="Patología">
+            <div class="alert alert-danger mt-2"
+                *ngIf="formRegistro.get('patologia')?.invalid && (formRegistro.get('patologia')?.dirty || formRegistro.get('patologia')?.touched)"
+                class="alert alert-danger mt-2">
+                <div *ngIf="this.formRegistro.get('patologia')?.errors?.['required']">El campo es obligatorio.</div>
+                <!-- <div *ngIf="this.formRegistro.get('direccion')?.errors?.['pattern']">El nombre debe contener solo letras.</div> -->
+                <!-- <div *ngIf="this.formRegistro.get('direccion')?.errors?.['minlength']">El nombre debe contener al menos 3 letras</div>  -->
+            </div>
+            <div *ngIf="formRegistro.get('patologia')?.valid && (formRegistro.get('patologia')?.dirty || formRegistro.get('patologia')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+
+        <div>
+            <button class="btn btn-primary" type="submit" [disabled]="formRegistro.invalid">
+            <!-- <button class="btn btn-primary" type="submit" > -->
+                Enviar
+            </button>
+        </div>
+        <div>
+            <button class="btn btn-secondary">
+                Cancelar
+            </button>
+        </div>
+
+    </form>
+
+
+
+</div>
+{{formRegistro.get('tipoABC')?.value}}

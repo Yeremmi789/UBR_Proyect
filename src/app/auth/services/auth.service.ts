@@ -15,6 +15,8 @@ import { User } from 'src/app/_models/user';
 const helper = new JwtHelperService();
 
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,8 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   private url: string = 'http://localhost/API_php/angular/ubr_Proyect/';
-  private API_Laravel: string = 'http://localhost:8000/api';
+  // private API_Laravel: string = 'http://localhost:8000/api';
+  private API_Laravel = environment.apiRest;
 
   private _usuario!: Personal;
 
@@ -34,7 +37,9 @@ export class AuthService {
     return { ...this._usuario }
   }
 
-  constructor(private http: HttpClient, private router:Router
+  constructor(private http: HttpClient, private router:Router,
+
+    private mensaje:ToastrService,
   ) {
     this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
         this.user = this.userSubject.asObservable();
@@ -43,6 +48,8 @@ export class AuthService {
   public get userValue() {
         return this.userSubject.value;
     }
+
+    
 
   login(name: string, password: string) {
     const ruta_api = `${this.API_Laravel}/login`;
@@ -87,6 +94,11 @@ export class AuthService {
   logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+
+    // Notificar al usuario que cerró sesión Exitosamente :DDD
+    this.mensaje.info("Cierre de sesión exitosa", "Cerró sesión",
+    {timeOut:5000}
+    );
   }
 
 

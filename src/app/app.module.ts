@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { PrincipalModule } from './principal/principal.module';
 import { PersonalModule } from './Personal/personal.module';
 import { HttpClientModule } from '@angular/common/http';
-import { BreadcrumbModule } from 'angular-crumbs';
+
 // Sección de Modulos ---- // Sección de Modulos
 
 // Componentes ---- // Componentes
@@ -32,9 +32,25 @@ import { ToastrModule } from 'ngx-toastr';
 //Angular Material --- //Angular Material
 
 
+import { BreadcrumbModule } from "xng-breadcrumb";
+import { BreadcrumbService } from 'xng-breadcrumb';
+import { NavigationComponent } from './navigation/navigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+
+import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
+
 @NgModule({
   declarations: [
     AppComponent,
+    // NavigationComponent,
+    // DashboardComponent,
     
   ],
   imports: [
@@ -55,11 +71,29 @@ import { ToastrModule } from 'ngx-toastr';
     MatIconModule,
     MatButtonModule,
     BreadcrumbModule,
-    ToastrModule.forRoot(), // ToastrModule added
+    ToastrModule.forRoot(),
+
+
+
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule, // ToastrModule added
+
+
+    MatTooltipModule, //Para mostrar una leyenda al momento de pasar encima el cursor
   ],
   providers:[
     AuthService,
-    CookieService
+    CookieService,
+    BreadcrumbService
+  ],
+
+  exports:[
+    
   ],
   bootstrap: [AppComponent],
   

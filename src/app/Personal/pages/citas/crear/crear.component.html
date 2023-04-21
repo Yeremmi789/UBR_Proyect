@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="card-body">
+        <h1>Registro de citas UBR</h1>
+        <form [formGroup]="formCitas" (ngSubmit)="procesar()">
+            <div class="mb-2">
+                <label class="form-label">Paciente</label>
+                <input type="number" formControlName="id_paciente" class="form-control"
+                    placeholder="ingrese la edad del paciente">
+                <div class="alert alert-danger mt-2"
+                    [hidden]="formCitas.get('id_paciente')?.valid || formCitas.get('id_paciente')?.pristine">
+                    . Solo numeros
+                </div>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Fecha</label>
+                <input type="date" formControlName="fecha" class="form-control" placeholder="Nombre">
+                <div class="alert alert-danger mt-2"
+                    [hidden]="formCitas.get('fecha')?.valid || formCitas.get('fecha')?.pristine">
+                    la fecha
+                </div>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Terapeuta</label>
+                <input type="text" formControlName="teapeuta" class="form-control"
+                    placeholder="Ingresa el apellido paterno">
+                <div class="alert alert-danger mt-2"
+                    [hidden]="formCitas.get('teapeuta')?.valid || formCitas.get('teapeuta')?.pristine">
+                    mayuscula cada letra inicial
+                </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit" [disabled]="formCitas.invalid">
+                Enviar
+            </button>
+            <button class="btn btn-secondary">
+                Cancelar
+            </button>
+        </form>
+    </div>
+</div>

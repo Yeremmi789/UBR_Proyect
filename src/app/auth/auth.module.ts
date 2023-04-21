@@ -8,7 +8,8 @@ import { RegistroComponent } from './registro/registro.component';
 import { NavComponent } from '../shared/nav/nav.component';
 import { SharedModule } from '../shared/shared.module';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     AuthRoutingModule,
     SharedModule,
-
+    FormsModule,
     // Para poder controlar los datos del formulario
-    ReactiveFormsModule
+    ReactiveFormsModule,
     // Para poder controlar los datos del formulario
     
   ],

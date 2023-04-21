@@ -31,12 +31,17 @@ export class LoginComponent implements OnInit{
     }
 
     ngOnInit(): void {
+      this.checkLocalStorage();
     }
 
     checkLocalStorage(){
       if(localStorage.getItem('token')){
-        this.router.navigateByUrl('/personal/');
+        this.router.navigateByUrl('/personal');
       }
+      // else{
+      //   this.router.navigateByUrl('/auth/login');
+      //   // this.router.navigateByUrl('/quienes-somos');
+      // }
     }
 
   login(){

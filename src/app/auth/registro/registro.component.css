@@ -5,7 +5,7 @@
     padding: 0;
 }
 
-.container {
+/* .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,10 +14,26 @@
     font-family: 'Montserrat';
     font-style: 16px !important;
     margin-bottom: 80px;
+} */
 
 
+.container {
+    position: relative;
+    width: 650px;
+    height: 400px;
 }
 
+.padding_XD{
+    margin: 5px 0 5px 0;
+}
+
+.alert{
+    /* padding: 5px; */
+    margin: 2px;
+}
+
+
+/* 
 .form-control {
     width: 350px;
 }
@@ -27,8 +43,6 @@
 }
 
 .login {
-    /* margin-top: 50px; */
-    /* margin-top: 10px; */
     padding-top: 10px;
 }
 
@@ -49,4 +63,19 @@
 
 .my3-3 {
     margin-top: 20px;
+} */
+
+
+/* .mensajeXD{
+    position: relative;
+    right: -500px;
+    bottom: -500px;
+} */
+
+/* #toast-container{
+    display: inline-block;
 }
+
+span{
+    display: inline-block;
+} */

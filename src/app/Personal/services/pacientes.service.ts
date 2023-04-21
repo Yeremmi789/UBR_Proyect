@@ -4,12 +4,15 @@ import { Paciente, Token } from './Pacientes';
 import { tap, Observable, of } from 'rxjs';
 // import { Token } from '../../auth/services/Auth';
 import { map, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PacientesService {
-  private API_Laravel: string = 'http://localhost:8000/api';
+  // private API_Laravel: string = 'http://localhost:8000/api';
+  private API_Laravel = environment.apiRest;
+  
 
   private _paciente!: Paciente;
 

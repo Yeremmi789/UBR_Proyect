@@ -1,0 +1,57 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false"
+      id="colorMenuFondo"
+      >
+
+
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list >
+      <a mat-list-item id="btn" class="cMenu"  >Tablero</a>
+      <a mat-list-item id="btn" class="cMenu"  >Citas Medicas</a>
+      <a mat-list-item id="btn" class="cMenu"  >Pacientes</a>
+      <a mat-list-item id="btn" class="cMenu"  >Historial de citas</a>
+      <a mat-list-item id="btn" class="cMenu"  >Estadisticas</a>
+      <a mat-list-item id="btn" class="cMenu" [routerLink]="['Pacientes/listado']" >Pacientes</a>
+      <a mat-list-item id="btn" class="cMenu"  *ngIf="Rol.roles_id===1">Configuración</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="nav">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <!-- *ngIf="isHandset$ | async" -->
+        
+        <mat-icon class="letras_fondoNegro" aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="letras_fondoNegro">CitasUBR</span>
+
+      <!-- <button (click)="logout()" style="position: absolute; right: 20px; font-size: 15px;">Cerrar Sesión</button> -->
+      <button (click)="logout()" mat-raised-button id="btn" style="position: absolute; right: 20px; font-size: 15px;">Cerrar Sesión</button>
+
+      <!-- <div class="example-sidenav-content">
+        <button type="button" mat-button (click)="drawer.toggle()">
+          Toggle sidenav
+        </button>
+      </div> -->
+
+
+      
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <!-- <app-dashboard></app-dashboard> -->
+    <!-- <app-listado></app-listado> -->
+
+    <!-- <router-outlet></router-outlet> -->
+    
+
+    <!-- FOOTER -->
+    <app-footer></app-footer>
+    <!-- FOOTER -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

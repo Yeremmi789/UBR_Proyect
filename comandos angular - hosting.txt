@@ -1,0 +1,10 @@
+admin
+admin@gmail.com
+SecurePass123
+
+user
+user@gmail.com
+SecurePass123
+
+Comado para poner a produccion angular
+ng build --configuration production --aot

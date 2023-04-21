@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-quienes-somos',
@@ -10,9 +11,17 @@ export class QuienesSomosComponent implements OnInit{
 
   // breadcrumbs: { url: string, nombre: string }[];
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute,
+      private bread:BreadcrumbService
+    ) {
+      
+    }
 
   ngOnInit() {
+
+    this.bread.set('@ChildOne', 'Child One');
+
+    
     // Obtenemos la información de la ruta actual
     // const url = this.activatedRoute.pathFromRoot
     //   .map(route => route.path)

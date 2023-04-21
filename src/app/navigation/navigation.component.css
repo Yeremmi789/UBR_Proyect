@@ -1,0 +1,43 @@
+
+/* #colorMenuFondo{
+  background-color: #294B52;
+} */
+.letras_fondoNegro{
+  color:white;
+}
+
+.nav{
+  background-color: #143b33;
+}
+
+.cLetras{
+  color:white;
+}
+
+/* #btn{
+  color:white;
+} */
+
+.cMenu:hover{
+  background-color: #a3a3a3;
+  color: white;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+

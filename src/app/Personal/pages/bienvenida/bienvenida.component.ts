@@ -81,24 +81,32 @@ export class BienvenidaComponent implements OnInit {
   private alertShown: boolean = false;
 
   ngOnInit() {
-    this.rolesService.ObtenerRoles()
-      .subscribe(r => {
-        console.log(r);
-        this.Roles = r;
-        // this.roles = [r];
-        // return [r];
-      });
+    // this.rolesService.ObtenerRoles()
+    //   .subscribe(r => {
+    //     console.log(r);
+    //     this.Roles = r;
+    //     // this.roles = [r];
+    //     // return [r];
+    //   });
+
+
+
+// Esta es para colocar el nombre del usuario en la pantalla de bienvenida
     this.rolesService.ObtenerMisDatos()
       .subscribe(contenido => {
         console.log(contenido);
         this.Usuario = contenido;
       });
 
+      
+// Esta consulta es para indicar al sistema que es lo que debe mostrar
     this.rolesService.ObtenerMisRoles()
       .subscribe(cont => {
         console.log(cont);
         this.Rol = cont;
       });
+
+
     // console.log(this.dataSource);
 
     // this.mensaje.success(":)","Bienvenido",{

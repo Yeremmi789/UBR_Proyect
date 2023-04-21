@@ -13,8 +13,25 @@ import { PacienteComponent } from './paciente/paciente.component';
 import { ListadoComponent } from './pages/paciente/listado/listado.component';
 import { BienvenidaComponent } from './pages/bienvenida/bienvenida.component';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './filter/filter.pipe';
+
+
+import { BreadcrumbModule } from 'xng-breadcrumb';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { NavigationComponent } from '../navigation/navigation.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterModule } from '@angular/router';
+import { RegistrarComponent } from './pages/paciente/registrar/registrar.component';
+import { CrearComponent } from './pages/citas/crear/crear.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +39,12 @@ import { FilterPipe } from './filter/filter.pipe';
     PacienteComponent,
     ListadoComponent,
     BienvenidaComponent,
-    FilterPipe
+    FilterPipe,
+
+    NavigationComponent,
+    DashboardComponent,
+    RegistrarComponent,
+    CrearComponent,
   ],
   imports: [
     CommonModule,
@@ -35,11 +57,27 @@ import { FilterPipe } from './filter/filter.pipe';
     MatPaginatorModule,
     MatIconModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    BreadcrumbModule,
     // Para usar los materiales de Angular, se necesita meter los Modulos en el archivo del modulo principal que está en cada carpeta y NO en el modulo principal del proyecto
+
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    FlexLayoutModule,
+
+    ReactiveFormsModule
+    
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
+  ],
+  exports: [
+    RouterModule
   ],
 })
 export class PersonalModule { }

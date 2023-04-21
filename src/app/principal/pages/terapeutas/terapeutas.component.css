@@ -18,3 +18,72 @@
     margin-top: 0px;
     margin-bottom: -70px
 }
+
+.cuerpo {
+    padding-top: 20px;
+    line-height: 1.5;
+    font-size: 15px;
+    color: #666666;
+    margin: 0 20px 20px 20px;
+
+    font-style: normal;
+    padding-bottom: 100px;
+}
+
+/* ANIMACION */
+
+
+.doctor-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.doctor-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 2px #ccc;
+    transform: rotate(0deg);
+    transition: transform 0.5s ease;
+}
+
+.doctor-img:hover {
+    transform: rotate(360deg);
+    /* animation: heartbeat 1s infinite; */
+}
+
+.thank-you {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.thank-you:hover+.doctor-container .doctor-img {
+    animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.img-inicio-terapeutas {
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.img-inicio-terapeutas:hover {
+    animation: heartbeat 1s infinite;
+}

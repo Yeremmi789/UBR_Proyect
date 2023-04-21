@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "recuperacionpassword",
+  "private_key_id": "e6180abc2b21f6e07b2dbfc87cf6570ca718f8e8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCvDUmSUGYkwFxo\n751mQ3iK6RaWElThlsGDwm9Mc7wnrZckcmBJ/4dH7m4nXJzDXxiC5cWmRjyZx68k\nIZM7hsEDDB3xE7mK4PViIRa2dBd4MEQkLUf80m1CVbRo/BiMT0Qcnw5499kDSOlu\nvbTtlPflcK0liLNTDFwPF81p5Tf0B0N53xFdIAMGsZGb0yqWcKNKfNAx18l5awoP\ng99i3zdf1JqCINNmMZtLrEU8gl8xRb7SUwJHuvTLBN8zc7nCtSAqs+GxVnKBjFN6\nBhlQMK4mso4ubvKlvZfQKoPAWxoklIyYqDp7AxYlqQ2EKS1XW59KgSqtOkbLrDJE\n3wb1qXFvAgMBAAECggEACuBged7U+eOZ2ktJFFmM29SvupNZAstDKtSh5bYrMqvu\ngC07Hl3qIeYGoht3AgyekUOFjFdA3K0zjKMpasFsrKvMEHaRSLfBh19W8e80phsZ\noMXPez332+9HTl6bh9xE9yJK2+lKapHVLzRKUZi37mGZ4IMl4TsbXTS1Zqb/WwIe\nN0s+nBBXGpQtYGoxbbksz16fNQZW02GNxMQwOzJF1uMEbMPam3ct0+MXFhPS494p\nJkWuhCPunQTbqqj5rKptwit1fQZx6Ps5Uvi30+6D+H9dI7pVqb/nCGxRpcJJsBuQ\njN1IFNUM3wntLZ667NFmkiNin2FTvbgVSSiPwXzrAQKBgQDYHsigZhFVbX5gkFqG\noon/S9TT+Bcxp2i2z7hHIfWkr50k0JqYUDpa6pFGVj+0RrYPgOYDkhSevWDEJh6L\nmR5HsCwck+Z8ysP47N3YtuwYXcDLXZS/GsaIgqw8wELqNc4RcPL2Y/rGPt0W5Raa\nUOeAiEK7b4p9jIzQPo70l0IHkQKBgQDPWn4uHdmrZzOyhDSgb/cUHiBHcDmPqkCe\nSz1zEvyer6jq5M6x0vYqDpB/lJmd2+jk2s3DP02k9MdE07R3vbNcdu7lRe3DdJLl\nemt4ou2U11H48JIxRjbihRwSkDFejmHZrqJYk/GSiVL9sO7UsC1+mWHYLtpXIzhX\nYnzGzEFo/wKBgFnQ0Uf3oxSBoJe45iY1vmves+Azpk/4Zsgyoz7Mmi2K3h/CobzS\n+q119lHo3iipilf/FZg+SVt/EIvz25XgWHkqeeqWfJ84FSGKLtg1jQDDVbAuf/a7\nxe5NgA7vR9/V5IHTEuXavwlMbs1o/2+6V7tO5YzH2iI7GvogRYDYq5RBAoGADY0R\nb/wdbJk7BLClK9MFZ7gsTd7ktCHhRTcPlgSoo8pBFNDNPUvXMJpxERVqEKn9h29R\nQTBS57Pjjfjz81tfbGyNYkh2qG5m5z5f5atoMXD893LpavT2w0kFs6TexRozBOHn\n1Dge8n+s/81fXmEBKCPoBBPTyxwPI47ZLrjMkYsCgYEAv76wkCCcnSWBUvSrmFTA\nfWmC7t2HoHtebmcxhl8U+BrWIQHDtrNtXXa3WLkzsvsEDwVcaus1houbVy6FCzTG\nTqyWXLerfKmmzxEV74m98hd+jaQr/GeUyY9ODBsT6tFirh284xMIQHMQhpHqY8Ei\nt/3qisFlm5bJBehmxDDUlvA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "mi-cuenta-de-servicio-api@recuperacionpassword.iam.gserviceaccount.com",
+  "client_id": "105159378798988457692",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mi-cuenta-de-servicio-api%40recuperacionpassword.iam.gserviceaccount.com"
+}

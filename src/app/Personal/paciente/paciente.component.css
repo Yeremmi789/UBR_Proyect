@@ -1,0 +1,49 @@
+.container {
+    position: relative;
+    width: 650px;
+    height: 400px;
+
+    
+}
+
+
+
+
+img,
+p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+img{
+    position: absolute;
+    left: 0;
+}
+
+img {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    animation: rain 3s infinite linear;
+}
+
+p {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.container:hover img,
+.container:hover p {
+    opacity: 0;
+}
+
+@keyframes rain {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}

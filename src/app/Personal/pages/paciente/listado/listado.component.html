@@ -4,7 +4,7 @@
     <button (click)="logout()">Cerrar Sesión</button>
 </div>
 <!-- <app-barra-lateral></app-barra-lateral> -->
-<div class="cajaOpciones">
+<div class="cajaOpciones animated fadeIn">
     <div class="cajaElementos">
         <h1>Listado de Pacientes</h1>
         <div class="buscador">
@@ -20,13 +20,13 @@
             </nav>
         </div>
     </div>
-    <div class="botones">
+    <div class="botones animated fadeIn">
         <button class="agg">Agregar</button>
         <!-- <button class="xd">xd</button> -->
     </div>
 </div>
 
-<div class="centrar">
+<div class="centrar animated fadeIn presentation-text">
     <div id="ancho">
 
         <table class="table w-100">
@@ -37,8 +37,11 @@
                     <th scope="col">Apellido_paterno</th>
                     <th scope="col">Apellido_materno</th>
                     <th scope="col">Edad</th>
-                    <th scope="col">Telefono</th>
+                    <!-- <th scope="col">Telefono</th> -->
+                    <th scope="col">Expediente</th>
+                    <th scope="col">Sexo</th>
                     <th scope="col">Direccion</th>
+                    <th scope="col">Patología</th>
                     <th scope="col" *ngIf="Rol.roles_id === 1">Opciones</th>
                 </tr>
             </thead>
@@ -46,11 +49,16 @@
                 <tr *ngFor="let item of Paciente | filter:filterPost">
                     <!-- <th scope="row">{{item.id}}</th> -->
                     <td>{{item.nombre}}</td>
-                    <td>{{item.apellido_paterno}}</td>
-                    <td>{{item.apellido_materno}}</td>
+                    <!-- <td>{{item.apellido_paterno}}</td> -->
+                    <td>{{item.apellidoP}}</td>
+                    <!-- <td>{{item.apellido_materno}}</td> -->
+                    <td>{{item.apellidoM}}</td>
                     <td>{{item.edad}}</td>
-                    <td>{{item.telefono}}</td>
+                    <!-- <td>{{item.telefono}}</td> -->
+                    <td>{{item.expediente}}</td>
+                    <td>{{item.sexo}}</td>
                     <td>{{item.direccion}}</td>
+                    <td>{{item.patologia}}</td>
                     <td *ngIf="Rol.roles_id === 1">
                         <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
                             <mat-icon>edit</mat-icon>

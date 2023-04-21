@@ -14,7 +14,10 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
 import { RegistroTrabComponent } from './pages/registro-trab/registro-trab.component';
 
-
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PreguntaResetComponent } from './pages/pregunta-reset/pregunta-reset.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { RegistroTrabComponent } from './pages/registro-trab/registro-trab.compo
     QuienesSomosComponent,
     InicioSessionComponent,
     TerapeutasComponent,
-    RegistroTrabComponent
+    RegistroTrabComponent,
+    ResetPasswordComponent,
+    PreguntaResetComponent,
 
   ],
 
@@ -39,8 +44,13 @@ import { RegistroTrabComponent } from './pages/registro-trab/registro-trab.compo
     HammerModule,
     SharedModule,
     // para que el carrusel funcione
-    MdbCarouselModule
+    MdbCarouselModule,
     // para que el carrusel funcione
+
+    MatTooltipModule, //Para mostrar una leyenda al momento de pasar encima el cursor
+    
+    FormsModule,
+    ReactiveFormsModule,
   ],
   
   // para que el carrusel funcione

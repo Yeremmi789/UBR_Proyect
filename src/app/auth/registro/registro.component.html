@@ -1,49 +1,214 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-<app-nav></app-nav>
-<div class="espacio_nav">
-</div>
+    <app-nav-logged></app-nav-logged>
+    <div class="espacio_nav">
+    </div>
 
-<div class="container">
+<div class="container" style="padding-top: 15px;">
 
-    <h2>Registro</h2>
+    <h2 style="padding: 10px;">Registrar Terapeutas</h2>
 
-    <form action="" class="login">
+    <form class="row g-3 login"  (ngSubmit)="registro()" [formGroup]="formRegistro">
 
+        <!-- <div class="col-md-4 padding_XD">
+            <label for="date" class="form-label">Fecha</label>
+            <input type="date" class="form-control" formControlName="fecha" placeholder="Fecha"  required >
+        </div> -->
 
-        <div class="mb-2">
+        <div class="col-md-4 padding_XD">
             <label for="text" class="form-label">Usuario</label>
-            <input type="text" class="form-control" name="usuario" placeholder="Nombre de usuario" required>
+            <input type="text" class="form-control" formControlName="name" placeholder="Nombre de usuario" [(ngModel)]="nombre" required >
+            <!-- <div class="alert alert-danger mt-2" [hidden]="formRegistro.get('name')?.valid || formRegistro.get('name')?.pristine">
+                Correcto :)
+            </div> -->
+            <!-- <div class="alert alert-danger mt-2" *ngIf="formRegistro.get('name')?.invalid && (formRegistro.get('name')?.dirty || formRegistro.get('name')?.touched)" class="alert alert-danger mt-2" [hidden]="formRegistro.get('name')?.valid || formRegistro.get('name')?.pristine"> -->
+            <div class="alert alert-danger mt-2" *ngIf="formRegistro.get('name')?.invalid && (formRegistro.get('name')?.dirty || formRegistro.get('name')?.touched)" class="alert alert-danger mt-2">
+                <div  *ngIf="this.formRegistro.get('name')?.errors?.['required']">El campo es obligatorio.</div>
+                <div *ngIf="this.formRegistro.get('name')?.errors?.['pattern']">El nombre debe contener solo letras.</div>
+                <div *ngIf="this.formRegistro.get('name')?.errors?.['minlength']">El nombre debe contener al menos 3 letras</div> <!-- la validacion debe estar en minusculas para se reconocido y mostrar el mensaje en la interfaz :D-->
+                <div *ngIf="this.formRegistro.get('name')?.errors?.['maxlength']">El campo debe excede de caracteres (30)</div>
+            </div>
+            <div *ngIf="formRegistro.get('name')?.valid && (formRegistro.get('name')?.dirty || formRegistro.get('name')?.touched)" class="alert alert-success mt-2">
+                El campo es válido
+            </div>
         </div>
 
-        <div class="mb-4">
+        
+
+        <div class="col-md-4 padding_XD">
+            <label for="text" class="form-label">Apellido Paterno</label>
+            <input type="text" class="form-control" formControlName="apellido_paterno" placeholder="Apellido paterno" [(ngModel)]="ap_p"  required>
+            <div class="alert alert-danger mt-2" *ngIf="this.formRegistro.get('apellido_paterno')?.invalid && ( formRegistro.get('apellido_paterno')?.dirty || formRegistro.get('apellido_paterno')?.touched)">
+                <div *ngIf="this.formRegistro.get('apellido_paterno')?.errors?.['required']">El campo es obligatorio</div>
+                <div *ngIf="this.formRegistro.get('apellido_paterno')?.errors?.['pattern']">El campo debe contener solo letras.</div>
+                <div *ngIf="this.formRegistro.get('apellido_paterno')?.errors?.['minlength']">El campo debe contener al menos 3 letras</div>
+                <div *ngIf="this.formRegistro.get('apellido_paterno')?.errors?.['maxlength']">El campo debe excede de caracteres (30)</div>
+            </div>
+            <div *ngIf="formRegistro.get('apellido_paterno')?.valid && (formRegistro.get('apellido_paterno')?.dirty || formRegistro.get('apellido_paterno')?.touched)" class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+        
+        <div class="col-md-4 padding_XD">
+            <label for="text" class="form-label">Apellido Materno</label>
+            <input type="text" class="form-control" formControlName="apellido_materno" placeholder="Apellido materno" [(ngModel)]="ap_m"  required>
+            <div class="alert alert-danger mt-2" *ngIf="this.formRegistro.get('apellido_materno')?.invalid && ( formRegistro.get('apellido_materno')?.dirty || formRegistro.get('apellido_materno')?.touched)">
+                <div *ngIf="this.formRegistro.get('apellido_materno')?.errors?.['required']">El campo es obligatorio</div>
+                <div *ngIf="this.formRegistro.get('apellido_materno')?.errors?.['pattern']">El campo debe contener solo letras.</div>
+                <div *ngIf="this.formRegistro.get('apellido_materno')?.errors?.['minlength']">El campo debe contener al menos 3 letras</div>
+                <div *ngIf="this.formRegistro.get('apellido_materno')?.errors?.['maxlength']">El campo debe excede de caracteres (30)</div>
+            </div>
+            <div *ngIf="formRegistro.get('apellido_materno')?.valid && (formRegistro.get('apellido_materno')?.dirty || formRegistro.get('apellido_materno')?.touched)" class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+<!-- Para dejar un input u objeti que abarque todo (display block) -->
+                <!-- mb-4 -->
+<!-- Para dejar un input u objeti que abarque todo (display block) -->
+<!-- Para dejar un input u objeti que abarque un poco (display inline-bloc) -->
+                <!-- col-md-4 padding_XD -->
+<!-- Para dejar un input u objeti que abarque un poco (display inline-bloc) -->
+
+        <div class="md-4 padding_XD">
             <label for="email" class="form-label">Correo</label>
-            <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
+            <input type="email" class="form-control" formControlName="email" placeholder="Correo electrónico" [(ngModel)]="mail"  required>
+            <div class="alert alert-danger mt-2" *ngIf="this.formRegistro.get('email')?.invalid && ( formRegistro.get('email')?.dirty || formRegistro.get('email')?.touched)">
+                <div *ngIf="this.formRegistro.get('email')?.errors?.['required']">El campo es obligatorio</div>
+                <div *ngIf="this.formRegistro.get('email')?.errors?.['invalidEmail']">Minimo 4 caracteres antes del @</div>
+                <!-- <div *ngIf="this.formRegistro.get('email')?.errors?.['pattern']">asento</div> -->
+            </div>
+            <div *ngIf="formRegistro.get('email')?.valid && (formRegistro.get('email')?.dirty || formRegistro.get('email')?.touched)" class="alert alert-success mt-2">
+                El campo es válido
+            </div>
         </div>
 
-        <div class="mb-4">
+        <div class="col-md-6 padding_XD">
             <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+            <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" [(ngModel)]="pass"  required>
+            <div class="alert alert-danger mt-2" *ngIf="this.formRegistro.get('password')?.invalid && ( formRegistro.get('password')?.dirty || formRegistro.get('password')?.touched)">
+                <div *ngIf="this.formRegistro.get('password')?.errors?.['required']">El campo es obligatorio</div>
+                <div *ngIf="this.formRegistro.get('password')?.errors?.['pattern']">La contraseña debe contener al menos una letra <br> minúscula, una letra mayúscula y un número.</div>
+                <div *ngIf="this.formRegistro.get('password')?.errors?.['minlength']">La contraseña debe tener almenos 6 caracteres</div>
+            </div>
+            <div *ngIf="formRegistro.get('password')?.valid && (formRegistro.get('password')?.dirty || formRegistro.get('password')?.touched)" class="alert alert-success mt-2">
+                El campo es válido
+            </div>
         </div>
-        <div class="mb-4">
+        <div class="col-md-6 padding_XD">
             <label for="password" class="form-label">Confirmar Contraseña</label>
-            <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+            <input type="password" class="form-control" formControlName="password_confirmation" placeholder="Contraseña" [(ngModel)]="conf_pass"  required>
+            <div class="alert alert-danger mt-2" *ngIf="this.formRegistro.get('password_confirmation')?.invalid && ( formRegistro.get('password_confirmation')?.dirty || formRegistro.get('password_confirmation')?.touched)">
+                <div *ngIf="this.formRegistro.get('password_confirmation')?.errors?.['required']">El campo es obligatorio</div>
+                <!-- <div *ngIf="this.formRegistro.get('password')?.errors?.['pattern']">La contraseña debe contener al menos una letra <br> minúscula, una letra mayúscula y un número.</div> -->
+                <!-- <div *ngIf="this.formRegistro.get('password')?.errors?.['minlength']">La contraseña debe tener almenos 6 caracteres</div> -->
+                <div *ngIf="this.formRegistro.get('password_confirmation')?.errors?.['passwordMismatch']">La contraseñas no coinciden</div>
+            </div>
+            <div *ngIf="formRegistro.get('password_confirmation')?.valid && (formRegistro.get('password_confirmation')?.dirty || formRegistro.get('password_confirmation')?.touched)" class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+        <div class="col-md-6 padding_XD">
+            <label for="text" class="form-label">Edad(años)</label>
+            <input type="number" class="form-control" formControlName="edad" placeholder="Edad" [(ngModel)]="edad"  required>
+            
+            <div class="alert alert-danger mt-2" *ngIf="this.formRegistro.get('edad')?.invalid && ( formRegistro.get('edad')?.dirty || formRegistro.get('edad')?.touched)">
+                <div  *ngIf="this.formRegistro.get('edad')?.errors?.['required']">El campo es obligatorio</div>
+                <div *ngIf="this.formRegistro.get('edad')?.errors?.['pattern']">Solo se admiten valores numéricos</div>
+                <div *ngIf="this.formRegistro.get('edad')?.errors?.['min']">No se aceptan valores inferiores a 5</div>
+                <div *ngIf="this.formRegistro.get('edad')?.errors?.['max']">Excede el límite (70)</div>
+                <!-- <div *ngIf="this.formRegistro.get('edad')?.errors?.['max']">No se aceptan valores igual o mayores a 70</div> -->
+                
+            </div>
+            <div *ngIf="formRegistro.get('edad')?.valid && (formRegistro.get('edad')?.dirty || formRegistro.get('edad')?.touched)" class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+        <!-- [(ngModel)]="opcionSeleccionado" (change)="CargarIDTerapias()" -->
+        <div class="col-md-6 padding_XD">
+            <label for="password" class="form-label">Especialidad</label>
+            
+            <select class="form-select" formControlName="terapia_id" (change)="verSeleccion = formRegistro.get('terapia_id')?.value || formRegistro.get('terapia_id')?.pristine"  aria-label="Default select example">
+                <option class="container-fluid" selected>Seleccione especialidad</option>
+                <option class="container-fluid" *ngFor="let item of TiposList" [ngValue]="item.id">{{item.nombre}}</option>
+                
+            </select>
+            <div>Valor (id de la terapia): {{ verSeleccion}}</div>
+            <div class="alert alert-danger mt-2" *ngIf="this.formRegistro.get('terapia_id')?.invalid && ( formRegistro.get('terapia_id')?.dirty || formRegistro.get('terapia_id')?.touched)">
+                <div *ngIf="this.formRegistro.get('terapia_id')?.errors?.['required']">Seleccion obligatoria</div>
+                <div *ngIf="this.formRegistro.get('terapia_id')?.hasError('invalidOption')">Seleción no válida</div>
+            </div>
+            <div *ngIf="formRegistro.get('terapia_id')?.valid && (formRegistro.get('terapia_id')?.dirty || formRegistro.get('terapia_id')?.touched)" class="alert alert-success mt-2">
+                El campo es válido
+            </div>
         </div>
 
-        <div class="mb-4 form-check">
-            <label for="connected" class="form-check-label"><a href="">Aceptar Politicas de Privacidad</a></label>
-            <input type="checkbox" name="connected" class="form-check-input">
+        <div class="md-6 padding_XD">
+            <label for="password" class="form-label">Preguntas(recuperación contraseña)</label>
+            
+            <select class="form-select " style=" display:flex; flex-grow: 1;" formControlName="pregunta" (change)="verPregunta = formRegistro.get('pregunta')?.value || formRegistro.get('pregunta')?.pristine"  aria-label="Default select example">
+                <option  selected>Seleccione pregunta</option>
+                <option  *ngFor="let pregunta of List" [ngValue]="pregunta.id">{{pregunta.pregunta}}</option>
+                
+            </select>
+            <div>Valor (id de pregunta): {{ verPregunta}}</div>
+            <div class="alert alert-danger mt-2" *ngIf="this.formRegistro.get('pregunta')?.invalid && ( formRegistro.get('pregunta')?.dirty || formRegistro.get('pregunta')?.touched)">
+                <div *ngIf="this.formRegistro.get('pregunta')?.errors?.['required']">Seleccion obligatoria</div>
+                <div *ngIf="this.formRegistro.get('pregunta')?.hasError('invalidOption')">Seleción no válida</div>
+            </div>
+            <div *ngIf="formRegistro.get('pregunta')?.valid && (formRegistro.get('pregunta')?.dirty || formRegistro.get('pregunta')?.touched)" class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+
+        <div class="md-4 padding_XD">
+            <label for="text" class="form-label">Respuesta</label>
+            <input type="text" class="form-control" formControlName="respuesta" placeholder="Respuesta"  required >
+            <!-- <div class="alert alert-danger mt-2" [hidden]="formRegistro.get('name')?.valid || formRegistro.get('name')?.pristine">
+                Correcto :)
+            </div> -->
+            <!-- <div class="alert alert-danger mt-2" *ngIf="formRegistro.get('name')?.invalid && (formRegistro.get('name')?.dirty || formRegistro.get('name')?.touched)" class="alert alert-danger mt-2" [hidden]="formRegistro.get('name')?.valid || formRegistro.get('name')?.pristine"> -->
+            <div class="alert alert-danger mt-2" *ngIf="formRegistro.get('respuesta')?.invalid && (formRegistro.get('respuesta')?.dirty || formRegistro.get('respuesta')?.touched)" class="alert alert-danger mt-2">
+                <div  *ngIf="this.formRegistro.get('respuesta')?.errors?.['required']">Respuesta necesaria.</div>
+                <div  *ngIf="this.formRegistro.get('respuesta')?.errors?.['pattern']">No admite espacios en blanco caracteres.</div>
+                <div *ngIf="this.formRegistro.get('respuesta')?.errors?.['minlength']">El campo debe contener al menos 3 caracteres</div>
+                <div *ngIf="this.formRegistro.get('respuesta')?.errors?.['maxlength']">Tu respuesta debe ser breve y concisa (20)</div>
+            </div>
+            <div *ngIf="formRegistro.get('respuesta')?.valid && (formRegistro.get('respuesta')?.dirty || formRegistro.get('respuesta')?.touched)" class="alert alert-success mt-2">
+                Listo
+            </div>
+        </div>
+
+        <div class="md-4 form-check padding_XD">
+            <label for="connected" class="form-check-label"><a >Aceptar Politicas de Privacidad</a></label>
+            <input type="checkbox" formControlName="termsAccepted" [(ngModel)]="termsAccepted"  required> 
+            
+            <!-- <div *ngIf="this.formRegistro.get('termsAccepted')?.hasError('required') && formRegistro.get('termsAccepted')?.touched">
+                Debe aceptar los términos y condiciones
+              </div> -->
+              <div class="alert alert-danger mt-2" *ngIf="this.formRegistro.get('termsAccepted')?.invalid && ( formRegistro.get('termsAccepted')?.dirty || formRegistro.get('termsAccepted')?.touched)">
+                <div *ngIf="this.formRegistro.get('termsAccepted')?.hasError?.('required')">Seleccion obligatoria</div>
+                
+            </div>  
         </div>
 
         <div>
-            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            <!-- <button type="submit" class="btn btn-primary" >Registrar</button> -->
+            <button type="submit" class="btn btn-primary" [disabled]="formRegistro.invalid">Registrar</button>
         </div>
-
-        <div class="my3-3">
+        
+        <div class="my3-3 padding_XD">
             <span><a class="recuperar_C" routerLink="/auth/login">Ya estoy registrado</a></span>
         </div>
 
     </form>
+    
 
+    <!-- <span toastContainer>
+            <div aria-live="polite" id="toast-container" class="toast-container" >BBBBBBBB</div>
+    </span> -->
 </div>
+<!-- <span toastContainer>
+    <div aria-live="polite" id="toast-container" class="toast-container" style="position: relative; bottom: -200px;">BBBBBBBB</div>
+</span>
+<ng-template toastContainer style="position: relative; bottom: -200px;">hhhhhhhhh</ng-template> -->

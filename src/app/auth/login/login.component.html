@@ -5,7 +5,12 @@
 <div class="espacio_nav">
 </div>
 
-<div class="container">
+<!-- <app-breadcrumbs></app-breadcrumbs> -->
+
+
+
+
+<div class="container animated fadeIn">
     <h2>Login</h2>
     <form ngNativeValidate class="login" (ngSubmit)="login()" [formGroup]="formLogin">
         <div class="mb-4">
@@ -16,11 +21,11 @@
             <label for="password" class="form-label">Contraseña</label>
             <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" required>
         </div>
-        <div>
-            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        <div >
+            <button id="btn" type="submit" class="btn btn-primary sombra">Iniciar Sesión</button>
         </div>
         <div class="my3-3">
-            <span><a class="recuperar_C" href="">Recuperar contraseña</a></span>
+            <span><a class="recuperar_C" routerLink="/resetPassword">Recuperar contraseña</a></span>
         </div>
     </form>
 </div>

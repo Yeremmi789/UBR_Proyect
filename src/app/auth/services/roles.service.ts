@@ -5,6 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { User } from 'src/app/_models/user';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,11 @@ export class RolesService {
   private userSubject: BehaviorSubject<User | null>;
   public user:Observable<User | null>;
 
-  private API_Laravel: string = 'http://localhost:8000/api';
-  private api: string = 'http://localhost:8000/api/Allroles';
+  // private API_Laravel: string = 'http://localhost:8000/api';
+  // private api: string = 'http://localhost:8000/api/Allroles';
+
+  private API_Laravel = environment.apiRest;
+
   data_t = localStorage.getItem('token');
   headersModo = new HttpHeaders().set('Authorization', `Bearer ${this.data_t}`);
 
