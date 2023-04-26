@@ -6,50 +6,102 @@
 <!-- <app-breadcrumbs></app-breadcrumbs> -->
 
 
-  <nav aria-label="breadcrumb" style="padding: 30px 0 0 30px;">
-      <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Terapeutas</li>
-      </ol>
-  </nav>
+<!-- <nav aria-label="breadcrumb" style="padding: 30px 0 0 30px;">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Terapeutas</li>
+  </ol>
+</nav>
+ -->
 
-
-
-<div class="container is-max-widescreen py-6 context px-2">
-
+<!-- <div class="container is-max-widescreen py-6 context px-2">
   <div class="max-w930 color-blanco">
-
-    <h1 class="color-blanco mt-5">Nuestros Terapeutas</h1>
-
+    <h1 class="color-blanco mt-5">Categorías</h1>
     <div class="fye mb-5"></div>
-
-    <p>Tomar la desición de ponerse en manos de un terapeuta no es una decisión sencilla.</p>
+    <p>Escoge en nuestra gran cantidad de categorías</p>
     <p>Es normal que surjan muchas dudas y cuestiones respecto al profesionalismo y tipo de desarrolla. Por esto
       nos gutaría que conocieras aspectos sobre nuestra formación, experiencia Profesional y el tipo de terapia que
       desarrollamos.
     </p>
+  </div>
+</div> -->
 
+<div class="navbar">
+  <ol class="breadcrumb" style="position: absolute; left: 5%;">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Productos</li>
+  </ol>
+  <div class="search-bar">
+    <img src="assets/img/lupa1.png" alt="">
+    <input type="text" name="" [(ngModel)]="searchTerm" placeholder="Buscar por título" id="">
   </div>
 
-</div>
+  <div class="filter-bar">
+    <label for="filtro">Filtrar por:</label>
+    <select class="select-colors" name="filtro" id="filtro" [(ngModel)]="filtro">
+      <option value="">Todos</option>
+      <option value="categoria">Categoría</option>
+      <option value="precio">Precio</option>
+    </select>
 
+    <div *ngIf="filtro === 'categoria'">
+      <select class="select-colors" name="filtroCategoria" id="filtroCategoria" [(ngModel)]="filtroCategoria">
+        <option value="">Todas las categorías</option>
+        <!-- <option *ngFor="let categoria of categorias" [value]="categoria">{{categoria}}</option> -->
+        <option value="Hombre">Hombre</option>
+        <option value="Mujer">Mujer</option>
+      </select>
+    </div>
 
-<div class="container is-max-widescreen content px-2 is-relative">
-
-  <div class="columns is-multiline">
-    <div class="is-one-third column centrado">
-      <div class="fonodo-gris-0 p-5 py6 is-inline-block mt-4 b-ne">
-
-        <hr>
-        <h2 class="mt-0 is ">Equipo de terapeutas</h2>
-        <hr>
-
-      </div>
+    <div class="select-colors" *ngIf="filtro === 'precio'" id="barra-input">
+      <label for="filtro-precio" style="font-size: 15px;">Precio máximo:</label>
+      <input type="number" name="filtro-precio" id="filtro-precio" [(ngModel)]="filtroPrecio">
     </div>
   </div>
+</div>
 
+<!-- <option *ngFor="let categoria of categorias" [value]="categoria">{{categoria}}</option> -->
+<!-- <div>
+  <div id="barra-input">
+    <img src="assets/img/lupa1.png" alt="">
+    <input type="text" name="" [(ngModel)]="searchTerm" placeholder="Buscar por titulo" id="">
+  </div>
+  <label for="filtro">Filtrar por:</label>
 
+  <select class="select-colors" name="filtro" id="filtro" [(ngModel)]="filtro">
+    <option value="">Todos</option>
+    <option value="categoria">Categoría</option>
+    <option value="precio">Precio</option>
+  </select>
+  <label for="filtro"> </label>
+  <div class="select-colors" *ngIf="filtro === 'precio'" id="barra-input">
+    <label for="filtro"> </label>
+    <label for="filtro-precio" style="font-size: 15px;">Precio máximo:</label>
 
+    <input type="number" name="filtro-precio" id="filtro-precio" [(ngModel)]="filtroPrecio">
+  </div>
+  <div *ngIf="filtro === 'categoria'">
+    <select class="select-colors" name="filtroCategoria" id="filtroCategoria" [(ngModel)]="filtroCategoria">
+      <option value="">Todas las categorías</option>
+      <option value="Hombre">Hombre</option>
+      <option value="Mujer">Mujer</option>
+    </select>
+  </div>
+</div> -->
+
+<div class="espacio_nav">
+</div>
+
+<div class="container is-max-widescreen content px-2 is-relative">
+  <!-- <div class="columns is-multiline"> -->
+  <div class="is-one-third column centrado">
+    <!-- <div class="fonodo-gris-0 p-5 py6 is-inline-block mt-4 b-ne"> -->
+    <hr>
+    <h2 class="mt-0 is ">Nuestro Catalogo</h2>
+    <hr>
+    <!-- </div> -->
+  </div>
+  <!-- </div> -->
 </div>
 
 
@@ -57,86 +109,49 @@
 <div class="container">
 
   <div class="title">
-    <h3>Beneficios de pertenencia a la comunidad de la UBR San Felipe</h3>
+    <h3>Escoge en nuestro grán catalogo</h3>
   </div>
 
-  <div class="subtittle">
+  <!-- <div class="subtittle">
     <h4>Hemos apoyado a cientos de personas para su mejor recuperamiento</h4>
-  </div>
+  </div> -->
 
   <div class="row onerow">
 
-    <div class="intercontainer col-xs-12 col-md-3 img-inicio-terapeutas">
-      <img src="assets/img/img2.png" alt="" class="img-inicio-terapeutas">
+    <!-- <div *ngFor="let item of items | imageFilter:searchTerm:filtro:filtroCategoria:filtroPrecio"
+      class="intercontainer col-md-3 img-inicio-terapeutas">
+      <img src="{{item.imagen}}" alt="" class="img-inicio-terapeutas" id="tamanio">
       <div>
-        <span>Terapia Fisica</span>
+        <span>{{item.precio}}</span>
+        <br>
+        <span>{{item.categoria}}</span>
+        <br>
+        <span>{{item.tipo}}</span>
       </div>
+    </div> -->
+    <div class="producto img-inicio-terapeutas col-md-6"
+      *ngFor="let item of items | imageFilter:searchTerm:filtro:filtroCategoria:filtroPrecio">
+      <img src="{{item.imagen}}" alt="Imagen del producto" class="img-inicio-terapeutas">
+      <div class="categoria">{{item.categoria}}</div>
+      <div class="precio">{{item.precio}}</div>
+      <div class="tipo">{{item.tipo}}</div>
     </div>
 
-    <div class="intercontainer col-xs-12 col-md-3 img-inicio-terapeutas">
-      <img src="assets/img/img3.png" alt="" class="img-inicio-terapeutas">
-      <div>
-        <span>Terapia psicologica</span>
-      </div>
-    </div>
-
-    <div class="intercontainer col-xs-12 col-md-3 img-inicio-terapeutas">
-      <img src="assets/img/imagen1.png" alt="" class="img-inicio-terapeutas">
-      <div>
-        <span>Terapida de lenguaje</span>
-      </div>
-    </div>
-
-    <div class="intercontainer col-xs-12 col-md-3 img-inicio-terapeutas">
-      <img src="assets/img/img4.png" alt="" class="img-inicio-terapeutas">
-      <div>
-        <span>Terapia Emocional</span>
-      </div>
-    </div>
-
-
-  </div>
-
-  <div class="row tworow">
-
-    <div class="intercontainer col-xs-12 col-md-3 img-inicio-terapeutas">
-      <img src="assets/img/img2.png" alt="" class="img-inicio-terapeutas">
-      <div>
-        <span>Terapia Fisica</span>
-      </div>
-    </div>
-
-    <div class="intercontainer col-xs-12 col-md-3 img-inicio-terapeutas">
-      <img src="assets/img/img3.png" alt="" class="img-inicio-terapeutas">
-      <div>
-        <span>Terapia psicologica</span>
-      </div>
-    </div>
-
-    <div class="intercontainer col-xs-12 col-md-3 img-inicio-terapeutas">
-      <img src="assets/img/imagen1.png" alt="" class="img-inicio-terapeutas">
-      <div>
-        <span>Terapida de lenguaje</span>
-      </div>
-    </div>
-
-    <div class="intercontainer col-xs-12 col-md-3 img-inicio-terapeutas">
-      <img src="assets/img/img4.png" alt="" class="img-inicio-terapeutas">
-      <div>
-        <span>Terapia Emocional</span>
-      </div>
-    </div>
 
 
   </div>
 
 </div>
 
+<br>
+<br>
+<br>
 
 <div class="doctor-container">
   <!-- <img src="https://image.freepik.com/vector-gratis/medico-dando-consejos-paciente_74855-5626.jpg" alt="Doctor" class="doctor-img"> -->
-  <img src="assets/img/pastillas.png" alt="Doctor" class="doctor-img">
+  <!-- <img src="assets/img/pastillas.png" alt="Doctor" class="doctor-img"> -->
+  <img src="assets/img/zapatito.jpg" alt="Doctor" class="doctor-img">
 </div>
 
-<p class="thank-you">Gracias por visitar el hospital</p>
+<p class="thank-you">Gracias por visitarnos</p>
 <div class="" style="padding: 20px;"></div>

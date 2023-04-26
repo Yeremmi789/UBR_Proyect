@@ -60,17 +60,15 @@ export class RegistroComponent implements OnInit{
       this.formRegistro = this.contr_form.group({
         name: ['', [Validators.required, Validators.pattern(/^((?!\s+$)[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s])*$/), Validators.minLength(3), Validators.maxLength(30)]],
         apellido_paterno:['', [Validators.required, Validators.pattern(/^((?!\s+$)[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s])*$/), Validators.minLength(3),Validators.maxLength(30)]],
-        apellido_materno:['', [Validators.required, Validators.pattern(/^((?!\s+$)[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s])*$/), Validators.minLength(3),Validators.maxLength(30)]],
+        // apellido_materno:['', [Validators.required, Validators.pattern(/^((?!\s+$)[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s])*$/), Validators.minLength(3),Validators.maxLength(30)]],
         email:['', [Validators.required, Validators.email,this.noGmail, Validators.pattern(/^[a-zA-Z0-9._%+-áéíóúÁÉÍÓÚ]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
         password:['', [Validators.required,  Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/), Validators.minLength(6)]],
-        // password_confirmation: ['', [Validators.required, this.confirmPasswordValidator.bind(this)]],
         password_confirmation: ['', [Validators.required, this.confirmarPassword() ]],
         edad:['', [Validators.required, Validators.pattern(/^\d+$/), Validators.min(5), Validators.max(70)]],
-        terapia_id: ['Seleccione especialidad', [Validators.required, this.validateSelectOption]],
-        pregunta:['Seleccione pregunta', [Validators.required, this.validatePregunta]],
-        respuesta:['', [Validators.required,Validators.pattern(/^((?!\s+$)[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s])*$/), Validators.minLength(3), Validators.maxLength(30)]],
-        // pregunta_id:['2'],
-        termsAccepted:[false, [Validators.required]],
+        // terapia_id: ['Seleccione especialidad', [Validators.required, this.validateSelectOption]],
+        // pregunta:['Seleccione pregunta', [Validators.required, this.validatePregunta]],
+        // respuesta:['', [Validators.required,Validators.pattern(/^((?!\s+$)[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s])*$/), Validators.minLength(3), Validators.maxLength(30)]],
+        // termsAccepted:[false, [Validators.required]],
     });
     }
 

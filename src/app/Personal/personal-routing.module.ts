@@ -38,12 +38,12 @@ const routes: Routes = [
         },
         ]
       },
-      {path:'Terapeutas',
-        children:[
-          // {path:'ver', component:PacienteComponent},
-          { path: 'registrar', component: RegistroComponent },
-        ]
-      },
+      // {path:'Terapeutas',
+      //   children:[
+      //     // {path:'ver', component:PacienteComponent},
+      //     { path: 'registrar', component: RegistroComponent },
+      //   ]
+      // },
       // {path:'**', redirectTo:'mostrar'}
     ]
   },

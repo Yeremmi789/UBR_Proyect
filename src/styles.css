@@ -19,169 +19,221 @@
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 
 
 .animated {
-    animation-duration: 0.5s;
-    animation-fill-mode: both;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
 }
 
 
 @keyframes fadeIn {
 
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 .fadeIn {
-    animation-name: fadeIn;
+  animation-name: fadeIn;
 }
 
-.espacio_nav{
-    width: 100%; height: 72px; display: block; 
-    /* background: red; */
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-#btn{
-    
-    transition-property: transform;
-    transition-duration: 0.3s;
-    transition-timing-function: ease;
-    transition-delay: 0s;
-
+.espacio_nav {
+  width: 100%;
+  height: 72px;
+  display: block;
+  /* background: red; */
 }
 
-.sombra{
-    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.5);
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+#btn {
+
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+
+}
+
+.sombra {
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* .sombra2:hover{
     background: #ff8000;
 } */
 
-#btn:hover{
-    transform: translateY(-10px);
+#btn:hover {
+  transform: translateY(-10px);
 }
 
 /* ANIMACIONES  */
-    /* corazon-inicio */
+/* corazon-inicio */
 
 .heart-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    transform: rotate(45deg);
-  }
-  
-  .heart {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    background: red;
-    /* transform: rotate(45deg); */
-    animation: heartbeat 1s linear infinite; 
-  }
-  
-  .heart:hover{
-    /* transform: rotate(45deg); */
-    animation: rotate-heart 1s linear infinite;
-    /* animation: heartbeat 1s infinite; */
-    cursor: pointer;
-  }
-  
-  
-  .heart::before,
-  .heart::after {
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background: red;
-    border-radius: 25px 25px 0 25px;
-  }
-  
-  .heart::before {
-    top: -25px;
-    left: 0;
-  }
-  
-  
-  .heart::after {
-    top: 0;
-    left: -25px;
-  }
-  
-  
-  .thank-you {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  transform: rotate(45deg);
+}
+
+.heart {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: red;
+  /* transform: rotate(45deg); */
+  animation: heartbeat 1s linear infinite;
+}
+
+.heart:hover {
+  /* transform: rotate(45deg); */
+  animation: rotate-heart 1s linear infinite;
+  /* animation: heartbeat 1s infinite; */
+  cursor: pointer;
+}
+
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: red;
+  border-radius: 25px 25px 0 25px;
+}
+
+.heart::before {
+  top: -25px;
+  left: 0;
+}
+
+
+.heart::after {
+  top: 0;
+  left: -25px;
+}
+
+
+.thank-you {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+@keyframes rotate-heart {
+  0% {
+    transform: rotate(0deg);
   }
 
-  @keyframes rotate-heart {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
   }
-        /* latido-corazon */
+}
+
+/* latido-corazon */
 
 @keyframes heartbeat {
-    0% {
-      transform: scale(1);
-      
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+
   }
-        /* latido-corazon */
-    /* corazon-inicio */
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* latido-corazon */
+/* corazon-inicio */
 
 
-    /* Deslizamientos */
-        /* haciaAbajo */
-    .presentation-text {
-        /* font-size: 50px;
+/* Deslizamientos */
+/* haciaAbajo */
+.presentation-text {
+  /* font-size: 50px;
         font-weight: bold; */
-        text-align: center;
-        opacity: 0;
-        animation: slideIn 2s forwards;
-    }
-    
-    @keyframes slideIn {
-        0% {
-            opacity: 0;
-            transform: translateY(-50px);
-        }
-    
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-        /* haciaAbajo */
-    /* Deslizamientos */
+  text-align: center;
+  opacity: 0;
+  animation: slideIn 2s forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* haciaAbajo */
+/* Deslizamientos */
 /* ANIMACIONES  */
+
+
+/* ANIMACION */
+
+
+.doctor-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.doctor-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 2px #ccc;
+  transform: rotate(0deg);
+  transition: transform 0.5s ease;
+}
+
+.doctor-img:hover {
+  transform: rotate(360deg);
+  /* animation: heartbeat 1s infinite; */
+}
+
+.thank-you {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.thank-you:hover+.doctor-container .doctor-img {
+  animation: heartbeat 1s infinite;
+}
