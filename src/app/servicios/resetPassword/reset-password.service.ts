@@ -32,6 +32,7 @@ export class ResetPasswordService {
   // guardar correo y obtenerlo para el siguiente módulo
   guardarCorreo(correo:string){
     this.correo = correo;
+    localStorage.setItem('email',this.correo);
   }
 
   guardarDatos(data:any[]):void{
@@ -42,6 +43,8 @@ export class ResetPasswordService {
   }
 
   obtenerCorreo():string{
+    // localStorage.setItem('email',this.correo);
+    // localStorage.getItem('correo');
     return this.correo;
   }
   // guardar correo y obtenerlo para el siguiente módulo
@@ -129,10 +132,14 @@ export class ResetPasswordService {
     return this.http.post<any>(url, body);
   }
 
-  cambiarCont(password: string, ide:number):Observable<any[]> {
+  cambiarCont(password: string, email:string){
     const url = `${this.API_Laravel}/newContrasena`;
-    const body = { password,ide };
-    return this.http.put<any>(url, body);
+    const hola = 1;
+    // const body = { password,id };
+    const body = { password,email };
+    // return this.http.put<any>(url, body);
+    // localStorage.getItem('correo');
+    return this.http.post(url, body);
   }
 
 

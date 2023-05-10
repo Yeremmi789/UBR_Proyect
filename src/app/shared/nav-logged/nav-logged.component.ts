@@ -11,30 +11,30 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './nav-logged.component.html',
   styleUrls: ['./nav-logged.component.css']
 })
-export class NavLoggedComponent implements OnInit{
-  
+export class NavLoggedComponent implements OnInit {
+
   roles: any[] = [];
   Rol: any;
-  
 
-  constructor(private authService:AuthService,
-              private router:Router,
-              private rolesService:RolesService,
-              private http:HttpClient,
 
-              private mensaje:ToastrService,
-              private restoreBD:DatabaseService,
-    ){
-      
+  constructor(private authService: AuthService,
+    private router: Router,
+    private rolesService: RolesService,
+    private http: HttpClient,
+
+    private mensaje: ToastrService,
+    private restoreBD: DatabaseService,
+  ) {
+
   }
 
-  logout(){
-    
+  logout() {
+
     this.authService.logout()
     this.router.navigate(['/auth/login']);
   }
 
-  
+
 
 
   ngOnInit(): void {
@@ -49,25 +49,25 @@ export class NavLoggedComponent implements OnInit{
   }
 
 
-  respaldoManual(){
+  respaldoManual() {
     // this.restoreBD.restauracionManual().subscribe({
     //   response => this.
     // });
 
     this.restoreBD.restauracionManual().subscribe(
-      response =>{
-        if(response == true){
+      response => {
+        if (response == true) {
           console.log("RESPALDO BD");
-          this.mensaje.info("Respaldo de BD", "El respaldo fue todo un éxito :D",{
-            timeOut:5000,
+          this.mensaje.info("Respaldo de BD", "El respaldo fue todo un éxito :D", {
+            timeOut: 5000,
           });
-        }else{
+        } else {
           console.log("NOOOOOOOOO");
-          this.mensaje.warning("Algo salió mal", "Respaldo interrumpido :(",{
-            timeOut:5000,
+          this.mensaje.warning("Algo salió mal", "Respaldo interrumpido :(", {
+            timeOut: 5000,
           });
 
-          
+
         }
         // console.error('Algo salió mal');
       }
@@ -85,10 +85,10 @@ export class NavLoggedComponent implements OnInit{
       // },
       // error => console.error(error)
 
-      (response) =>{
+      (response) => {
         console.log('Respaldo creado con exito');
       },
-      (error)=>{
+      (error) => {
         console.log('Algo salió mal', error);
       }
 
@@ -96,5 +96,15 @@ export class NavLoggedComponent implements OnInit{
   }
 
 
-  
+  // Barra lateral
+  showSidebar = false;
+
+  toggleSidebar(): void {
+    this.showSidebar = !this.showSidebar;
+  }
+
+  closeSidebar(): void {
+    this.showSidebar = false;
+  }
+  // Barra lateral
 }

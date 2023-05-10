@@ -6,7 +6,29 @@
     
 }
 
-
+/*  */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f1f1f1;
+    z-index: 100;
+    /* padding: 20px; */ /*Se quita para poder meter la barra lateral ya diseñada :D*/
+  }
+  
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+  }
+  
+/* Baa */
 
 
 img,

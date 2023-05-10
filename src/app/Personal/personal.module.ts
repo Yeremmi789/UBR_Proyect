@@ -31,6 +31,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { RegistrarComponent } from './pages/paciente/registrar/registrar.component';
 import { CrearComponent } from './pages/citas/crear/crear.component';
+import { ListUsuariosComponent } from './pages/usuarios/list-usuarios/list-usuarios.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { CrearComponent } from './pages/citas/crear/crear.component';
     DashboardComponent,
     RegistrarComponent,
     CrearComponent,
+    ListUsuariosComponent,
   ],
   imports: [
     CommonModule,

@@ -6,14 +6,8 @@
 }
 
 #mover_navbar {
-    position: relative;
-    /* position: absolute; */
-    /* float: right; */
-    left: 45%;
-    /* left: 85%; */
-    /* left: 90%; */
-    /* left: 100%; */
-    /* left: 135%; */
+    display: flex;
+    justify-content: flex-end;
 }
 
 nav {
@@ -53,6 +47,57 @@ nav {
     width: 65px;
     height: 62px;
 }
-.active{
+
+.active {
     background-color: #0f7962;
 }
+
+
+/* Barra lateral */
+#menu-ico {
+    /* margin-left: 20px; */
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
+    /* margin-bottom: 200px; */
+    position: relative;
+    left: 20px;
+    bottom: 50%;
+    font-size: 150%;
+
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#menu-ico:hover {
+    background-color: rgb(0, 0, 0, 0.4);
+    border-radius: 50%;
+
+    transition: all 100ms;
+
+
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f1f1f1;
+    z-index: 100;
+    /* padding: 20px; */
+    /*Se quita para poder meter la barra lateral ya diseñada :D*/
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+/* Barra lateral */

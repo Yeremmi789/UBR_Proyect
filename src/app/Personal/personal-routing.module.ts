@@ -13,6 +13,7 @@ import { Role } from '../_models/role';
 import { RegistrarComponent } from './pages/paciente/registrar/registrar.component';
 import { RegistroComponent } from '../auth/registro/registro.component';
 import { CrearComponent } from './pages/citas/crear/crear.component';
+import { ListUsuariosComponent } from './pages/usuarios/list-usuarios/list-usuarios.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,17 @@ const routes: Routes = [
         children:[
           // {path:'ver', component:PacienteComponent},
           { path: 'registrar', component: RegistroComponent },
+        ]
+      },
+      {path:'Usuarios',
+        children:[
+          {path:'ver', component:PacienteComponent},
+          { path: 'registrar', component: RegistrarComponent },
+          { path: 'addCitas', component: CrearComponent, },
+          {path:'listado', component:ListUsuariosComponent,
+          canActivate: [RolesGuard], canLoad:[RolesGuard],
+          data: {roles: [Role.Admin]}
+        },
         ]
       },
       // {path:'**', redirectTo:'mostrar'}

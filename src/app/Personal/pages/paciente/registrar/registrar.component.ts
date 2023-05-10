@@ -5,6 +5,7 @@ import { RegistroService } from '../../../../auth/services/registro/registro.ser
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PacientesService } from 'src/app/auth/services/pacientes/pacientes.service';
 import { ToastContainerDirective, ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class RegistrarComponent {
 
   constructor(private registrarService:PacientesService,
     private contr_form:FormBuilder,
-    private mensaje:ToastrService
+    private mensaje:ToastrService,
+    private router:Router,
     ){this.crearFormulario();}
 
     crearFormulario(){
@@ -61,6 +63,7 @@ export class RegistrarComponent {
         // this.mensaje.success(":)","Usuario registrado",{
         //   timeOut:5000,
         // });
+        this.router.navigateByUrl('/');
         this.completo();
         console.log('Toastr ejecutado');
       },
@@ -79,6 +82,7 @@ export class RegistrarComponent {
       positionClass: 'toast-bottom-right',
       // positionClass: 'bottom-full',
     });
+    
   }
 
 }

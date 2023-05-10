@@ -6,34 +6,28 @@
     crossorigin="anonymous"></script>
 <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
-<body>
+<body> <!-- Si se quita el body, en el módulo aparece un tipo de letra chica jaja :D -->
 
     <div class="d-flex">
-
         <div id="sidebar-container" class="bg-primary">
-
             <div class="logo">
-
                 <img class="image" src="assets/img/dif.png" alt="">
-
             </div>
-
             <div class="menu">
-                <a href="#" class="d-block text-light p-3"> <i class="icon ion-md-apps lead"> </i>Tablero</a>
-                <a href="#" class="d-block text-light p-3"> <i class="icon ion-md-heart lead "> </i>Citas Medicas</a>
-                <a routerLink="/personal/mostrar" class="d-block text-light p-3"> <i class="icon ion-md-people lead "> </i> Pacientes</a>
-                <a href="#" class="d-block text-light p-3"><i class="icon ion-md-archive lead"> </i>Historial de
+                <!--Clase origibal     class="d-block text-light p-3"  -->
+                <a id="sep-items" class="d-block text-light px-4 py-2"> <i class="icon ion-md-apps lead"> </i>Tablero</a>
+                <a id="sep-items" class="d-block text-light px-4 py-2"> <i class="icon ion-md-heart lead "> </i>Citas Medicas</a>
+                <a routerLink="/personal/Pacientes/listado" class="d-block text-light px-4 py-2"> <i class="icon ion-md-people lead "> </i> Pacientes</a>
+                <a id="sep-items" class="d-block text-light px-4 py-2"><i class="icon ion-md-archive lead"> </i>Historial de
                     citas</a>
-                <a href="#" class="d-block text-light p-3"> <i class="icon ion-md-stats lead"> </i>Estadisticas</a>
-                <a href="#" class="d-block text-light p-3"> <i class="icon ion-md-settings lead "> </i>Configuración</a>
+                <a id="sep-items" class="d-block text-light px-4 py-2"> <i class="icon ion-md-stats lead"> </i>Estadisticas</a>
+                <a id="sep-items" class="d-block text-light px-4 py-2"> <i class="icon ion-md-settings lead "> </i>Configuración</a>
                 <br>
-                <a (click)="logout()" class="d-block text-light p-3"> <i class="icon ion-md-settings lead "> </i>{{auth.name}}</a>
-                <a (click)="logout()" class="d-block text-light p-3"> <i class="icon ion-md-settings lead "> </i>Cerrar sesión</a>
+                <a routerLink="/personal/Usuarios/listado" id="sep-items" class="d-block text-light px-4 py-2"> <i class="icon ion-md-settings lead "> </i>Usuarios-quitar</a>
+                <a (click)="logout()" class="d-block text-light px-4 py-2"> <i class="icon ion-md-settings lead "> </i>{{auth.name}}</a>
+                <a (click)="logout()" class="d-block text-light px-4 py-2"> <i class="icon ion-md-settings lead "> </i>Cerrar sesión</a>
             </div>
-
         </div>
-
-
     </div>
 
 </body>

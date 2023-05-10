@@ -1,0 +1,72 @@
+
+<app-nav-logged></app-nav-logged>
+<div class="centrar">
+    <h1>hola mundo</h1>
+    <button >Cerrar Sesión</button>
+</div>
+<!-- <app-barra-lateral></app-barra-lateral> -->
+<div class="cajaOpciones animated fadeIn">
+    <div class="cajaElementos">
+        <h1>Administracion de Usuarios</h1>
+        <div class="buscador">
+            <!-- <form class="d-flex w-100">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="text">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </nav>
+        </div>
+    </div>
+    <div class="botones animated fadeIn">
+        <button class="agg">Agregar</button>
+        <!-- <button class="xd">xd</button> -->
+    </div>
+</div>
+
+<div class="centrar animated fadeIn presentation-text">
+    <div id="ancho">
+
+        <table class="table w-100">
+            <thead>
+                <tr>
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido_paterno</th>
+                    <th scope="col">Apellido_materno</th>
+                    <th scope="col">Edad</th>
+                    <!-- <th scope="col">Telefono</th> -->
+                    <!-- <th scope="col">Sexo</th> -->
+                    <th scope="col">Terapia</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuarios">
+                    <td>{{ usuario.name }}</td>
+                    <td>{{ usuario.apellido_paterno }}</td>
+                    <td>{{ usuario.apellido_materno }}</td>
+                    <td>{{ usuario.edad }}</td>
+                    <td>{{ usuario.terapia }}</td>
+                    <td>{{ usuario.rol }}</td>
+                    <td >
+                        <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                            <mat-icon>remove_red_eye</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<app-footer></app-footer>

@@ -5,34 +5,36 @@ import { Router } from '@angular/router';
 import { ResetPasswordService } from '../../../servicios/resetPassword/reset-password.service';
 
 import { FormsModule } from '@angular/forms';
+import { retryWhen, delayWhen } from 'rxjs/operators';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.css']
 })
-export class ResetPasswordComponent implements OnInit{
+export class ResetPasswordComponent implements OnInit {
   formRegistro: FormGroup = new FormGroup({});
-  
+
   formRespuesta: FormGroup = new FormGroup({});
   formNewContrasena: FormGroup = new FormGroup({});
 
-  correo:string = "";
+  correo: string = "";
 
-  correos: string ="";
-  pregunta: string ="";
-  respuesta: string ="";
-  mensajes: string ="";
-  id:number=0;
+  // correos: string ="";
+  pregunta: string = "";
+  respuesta: string = "";
+  mensajes: string = "";
+  id: number = 0;
   datosCargados: boolean = false;
-
-
   datosListosBD: boolean = false;
+  password: string = "";
 
- 
+  // Bloquear
+  intentosFallidos = 0;
 
   constructor(private contr_form: FormBuilder, private mensaje: ToastrService, private reset: ResetPasswordService,
-    private route:Router,) {
+    private route: Router,) {
     this.crearFormulario();
 
     this.validarRespuesta();
@@ -48,24 +50,22 @@ export class ResetPasswordComponent implements OnInit{
     }
     );
   }
-  
-  validarRespuesta(){
+
+  validarRespuesta() {
     this.formRespuesta = this.contr_form.group({
       respuesta: ['', [Validators.required]],
     });
   }
 
-  newContrasena(){
+  newContrasena() {
     this.formNewContrasena = this.contr_form.group({
       password: ['', [Validators.required]],
       // id: [this.numerador],
-      
+
     });
   }
 
-
-
-  imprimir(event: Event){
+  imprimir(event: Event) {
     const correo = this.formRegistro.value.email;
     console.log(correo);
   }
@@ -76,8 +76,6 @@ export class ResetPasswordComponent implements OnInit{
     }
     return { 'invalidEmail': true };
   }
-
-
 
   // verificarCorreo(): any {
   //   this.reset.Verfgmail(this.formRegistro.value).subscribe(
@@ -90,7 +88,7 @@ export class ResetPasswordComponent implements OnInit{
   //       console.log('Toastr ejecutado');
   //     },
   //     error => {
-        
+
   //       this.mensaje.error(":(", "Correo NO encontrado", {
   //         timeOut: 5000,
   //       });
@@ -100,54 +98,43 @@ export class ResetPasswordComponent implements OnInit{
   // }
 
 
-
-
-
-  pedirGmail(){
-    const {email} = this.formRegistro.value;
+  pedirGmail() {
+    const { email } = this.formRegistro.value;
     this.reset.verificarGmaillll(email)
-    .subscribe(resp =>{
-      if(resp === true){
-
-        this.reset.guardarCorreo(this.correo);
-        this.route.navigate(['/pregunta-reset']);
-        this.mensaje.success(":)", "Correo encontrado", {
-          timeOut: 5000,
-        });
-        
-
-        console.log('SE PUDOOOOOO');
-      }else{
-        // this.route.navigate(['/']);
-        this.mensaje.error(":(", "Correo NO encontrado", {
-          timeOut: 5000,
-        });
-        console.log('NOOOOOOOOOSE PU');
-      }
-      return console.log(this.formRegistro.value);
-    });
+      .subscribe(resp => {
+        if (resp === true) {
+          // this.reset.guardarCorreo(this.correo);
+          this.route.navigate(['/pregunta-reset']);
+          this.mensaje.success(":)", "Correo encontrado", {
+            timeOut: 5000,
+          });
+          console.log('SE PUDOOOOOO');
+        } else {
+          // this.route.navigate(['/']);
+          this.mensaje.error(":(", "Correo NO encontrado", {
+            timeOut: 5000,
+          });
+          console.log('NOOOOOOOOOSE PU');
+        }
+        return console.log(this.formRegistro.value);
+      });
   }
 
 
-  nuevo(){
+  nuevo() {
     this.reset.pedirCorreo(this.correo).subscribe(
       (response: any) => {
         const p = this.pregunta = response.pregunta;
         const r = this.respuesta = response.respuesta;
         const m = this.mensajes = response.Msg;
         const i = this.mensajes = response.id;
-        
         this.datosCargados = true;
-
-
-
+        this.reset.guardarCorreo(this.correo);
         // console.log(response);
         // console.log(p);
         // console.log(r);
         // console.log(m);
         console.log(i);
-
-
         // this.reset.guardarCorreo(response);
         // this.route.navigate(['/pregunta-reset']);
         this.mensaje.success(":)", "Correo encontrado", {
@@ -155,65 +142,86 @@ export class ResetPasswordComponent implements OnInit{
         });
       },
       (error: any) => {
+        
+        this.intentosFallidos++;
+        // const mensajeError= error.error.Msg;
+        
         this.mensaje.error(":(", "Correo NO encontrado", {
+        // this.mensaje.error(":(", mensajeError, {
           timeOut: 5000,
         });
-        this.mensaje = error.error.Msg;
+
+        // if(this.intentosFallidos ===5){
+        //   this.bloquearFormularioTemporalmente();
+        //   this.formRegistro.reset();
+
+        // }
+
+        // this.mensaje.warning("Intento: "+this.intentosFallidos, "Correo NO encontrado", {
+        //   timeOut: 5000,
+        // });
       }
     );
   }
 
-  comprobarRespuesta(){
+  comprobarRespuesta() {
     // const reee = this.formRespuesta.value;
     const reee = this.formRespuesta.get('respuesta')?.value;
-    if(this.respuesta === reee){
+    if (this.respuesta === reee) {
       // estos es para imprimir y verificar los datos que enverdad se están recibiendo atravez del formulario
       // console.log('La respuesta coincide');
       // console.log(this.respuesta);
       // console.log(this.formRespuesta.value);
-      
+
       // console.log(reee);
       this.peticionRespuestaBD(reee);
 
-    }else{
+    } else {
       console.log('La respuesta NOOOOO coincide');
       // console.log(this.respuesta);
       // console.log(this.formRespuesta.value);
       console.log(reee);
     }
   }
-  Mensage:string ="";
-  okay:string = "";
+  Mensage: string = "";
+  okay: string = "";
   // numerador:number = 0;
-  numerador:any;
-  peticionRespuestaBD(respuesta:string){
+  numerador: any;
+  peticionRespuestaBD(respuesta: string) {
     // this.reset.vRespuesta(this.formRespuesta.get('respuesta')?.value)
     // const res_pregunta = {respuesta};
     this.reset.vRespuesta(respuesta).subscribe(
-      (esponse:any) =>{
+      (esponse: any) => {
 
         this.datosListosBD = true;
-        const men = this.Mensage = esponse.Mensage; 
-        const oka = this.okay = esponse.okay; 
-        const numer = this.numerador = esponse.numerador; 
+        const men = this.Mensage = esponse.Mensage;
+        const oka = this.okay = esponse.okay;
+        const numer = this.numerador = esponse.numerador;
       }
     );
-    
+
   }
-  men:string = "";
-  mandarContrasena(){
-    const {password} = this.formNewContrasena.value;
-    const id = this.numerador.id;
+  men: string = "";
+  mandarContrasena() {
+    // const password = this.formNewContrasena.value;
+    const password = this.formNewContrasena.get('password')?.value;
+    const email = this.correo;
     console.log(password);
-    console.log(id);
-    this.reset.cambiarCont(password,id).subscribe(
-      (resput: any) =>{
-        const r = this.men= resput.men;
+    this.reset.cambiarCont(password, email).subscribe(
+      (resput: any) => {
+        const r = this.men = resput.men;
         console.log(r);
-      },
-      (error:any) =>{
-        this.mensaje.error(":(", "Correo NO encontrado", {
+        this.mensaje.success(":0", "Contraseña Cambiada", {
           timeOut: 5000,
+          // positionClass: "toast-top-full-width",
+        });
+
+        this.route.navigate(['/auth/login'])
+      },
+      (error: any) => {
+        this.mensaje.error(":(", "Ha ocurrido un problema con el servidor", {
+          timeOut: 5000,
+          positionClass: "toast-top-full-width",
         });
         this.mensaje = error.error.men;
         console.log('NOSAEPASE');
@@ -223,7 +231,22 @@ export class ResetPasswordComponent implements OnInit{
 
 
   ngOnInit(): void {
-    
+
+  }
+
+  bloquearFormularioTemporalmente() {
+    // Deshabilitar el botón de envío del formulario
+    this.formRegistro.disable();
+    this.formRespuesta.disable();
+    this.formNewContrasena.disable();
+
+    // Establecer un temporizador para habilitar el botón después de 5 minutos
+    setTimeout(() => {
+      this.formRegistro.enable();
+      this.formRespuesta.enable();
+      this.formNewContrasena.enable();
+      this.intentosFallidos = 0;
+    }, 5 * 60 * 1000);
   }
 
 }

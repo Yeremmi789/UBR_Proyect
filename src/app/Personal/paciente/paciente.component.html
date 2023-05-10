@@ -7,7 +7,7 @@
 <h1>VISTA DE PACIENTE</h1>
 
 <div class="container" style="background-color: violet;">
-    <form class="row g-3 needs-validation" novalidate >
+    <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-4">
             <label for="validationCustom01" class="form-label">Nombre de usuario</label>
             <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
@@ -35,10 +35,10 @@
         <div class="col-md-4">
             <label for="validationCustomUsername" class="form-label">Correo</label>
             <div class="input-group has-validation">
-                
+
                 <input type="text" class="form-control" id="validationCustomUsername"
                     aria-describedby="inputGroupPrepend" required>
-                    <!-- <span class="input-group-text" id="inputGroupPrepend">@</span> -->
+                <!-- <span class="input-group-text" id="inputGroupPrepend">@</span> -->
                 <div class="invalid-feedback">
                     Please choose a username.
                 </div>
@@ -84,6 +84,17 @@
         </div>
     </form>
 </div>
+<!-- Boton para aparecer el menú -->
+<!-- <button (click)="toggleSidebar()">Mostrar/Ocultar Barra</button>
+
+<div *ngIf="showSidebar" class="sidebar-overlay" (click)="closeSidebar()"></div>
+
+<div *ngIf="showSidebar" class="sidebar">
+    --------------Contenido va aqui adentro ---------------
+    <app-barra-lateral></app-barra-lateral>
+</div> -->
+<!-- Boton para aparecer el menú -->
+
 
 
 <!-- <img src="assets/img/lluvia.png" alt="Imagen triste">
@@ -157,4 +168,3 @@
         </div>
     </form>
 </div> -->
-

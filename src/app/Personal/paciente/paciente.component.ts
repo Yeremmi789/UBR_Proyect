@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class PacienteComponent {
 
+  showSidebar = false;
+
+  toggleSidebar(): void {
+    this.showSidebar = !this.showSidebar;
+  }
+
+  closeSidebar(): void {
+    this.showSidebar = false;
+  }
+
 }
