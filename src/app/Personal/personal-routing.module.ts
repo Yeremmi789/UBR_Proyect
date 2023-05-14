@@ -43,7 +43,6 @@ const routes: Routes = [
       },
       {path:'Terapeutas',
         children:[
-          // {path:'ver', component:PacienteComponent},
           { path: 'registrar', component: RegistroComponent },
         ]
       },
@@ -59,15 +58,12 @@ const routes: Routes = [
         },
         ]
       },
+
     ]
   },
 
-  // {path:'ver', component:PacienteComponent}
   {path:'',
   children:[
-
-    // {path:'Bienvenida', component:BienvenidaComponent,pathMatch: 'full'},
-    
     {path: '404', component:PageErrorComponent},
     {path: '**', redirectTo:'404'},
     // {path:'**', redirectTo:'login'}

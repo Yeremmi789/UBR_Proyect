@@ -56,15 +56,23 @@
 
                 <ul class="navbar-nav" *ngIf="Rol.roles_id===1">
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link" routerLinkActive="" routerLink="/personal/Terapeutas/registrar">add
                             Terapeutas</a>
+=======
+                        <a class="nav-link" routerLinkActive="active" routerLink="/personal/Terapeutas/registrar">add Terapeutas</a>
+>>>>>>> 05c75d80d4680b7bcc079dcb91c61ba174d28355
                     </li>
                 </ul>
 
                 <ul class="navbar-nav">
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link" routerLinkActive="" routerLink="/personal/Pacientes/registrar">add
                             Paciente</a>
+=======
+                        <a class="nav-link" routerLinkActive="active" routerLink="/personal/Pacientes/registrar">add Paciente</a>
+>>>>>>> 05c75d80d4680b7bcc079dcb91c61ba174d28355
                     </li>
                 </ul>
                 <!-- <ul class="navbar-nav">
@@ -74,7 +82,7 @@
                 </ul> -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="" routerLink="/personal">Inicio</a>
+                        <a class="nav-link" routerLinkActive="active" routerLink="/personal">Inicio</a>
                     </li>
                 </ul>
 
@@ -86,13 +94,13 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a routerLink="/personal/Pacientes/ver" class="nav-link">Ver Pacientes</a>
+                        <a routerLink="/personal/Pacientes/ver" class="nav-link" routerLinkActive="active">Ver Pacientes</a>
                     </li>
                 </ul>
 
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a (click)="logout()" class="nav-link" id="inicio-session" style="cursor: pointer;">Cerrar
+                        <a (click)="logout()" class="nav-link" id="inicio-session" style="cursor: pointer;" routerLinkActive="active">Cerrar
                             Sesión</a>
                     </li>
                 </ul>

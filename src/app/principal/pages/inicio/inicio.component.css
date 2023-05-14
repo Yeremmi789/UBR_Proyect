@@ -10,6 +10,16 @@
 }
 
 
+.caja-Carrusel{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.tamano-Carrusel{
+    width: 70%;
+}
+
+
 .cont-maestro {
     display: flex;
     justify-content: center;

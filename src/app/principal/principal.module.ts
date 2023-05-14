@@ -18,6 +18,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PreguntaResetComponent } from './pages/pregunta-reset/pregunta-reset.component';
+import { ImageFilterPipe } from './pipes/image-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { PreguntaResetComponent } from './pages/pregunta-reset/pregunta-reset.co
     RegistroTrabComponent,
     ResetPasswordComponent,
     PreguntaResetComponent,
+    ImageFilterPipe,
 
   ],
 

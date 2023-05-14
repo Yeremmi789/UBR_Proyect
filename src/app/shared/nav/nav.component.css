@@ -11,7 +11,7 @@
 }
 
 nav{
-  background-color:#0C231E; position: fixed; width: 100%;
+  background-color:#af741b; position: fixed; width: 100%;
   z-index: 100;
 }
 
@@ -30,9 +30,10 @@ nav{
   font-family: 'Montserrat';
   font-style: 16px !important;
 }
-.navbar a:hover{
+/* .navbar a:hover{
   color: #B38E5D;
-}
+  color: #B38E5D;
+} */
 #inicio-session{
   width: 150px;
 }
@@ -44,15 +45,18 @@ nav{
 
 
 .active{
-  color: red;
+  /* color: red; */
+  background-color: rgba(71, 40, 4, 0.8);
 }
 
 
-
+/* 
 .active .nav-link{
   color: red;
 }
-
+#links{
+  background-color: rgba(71, 40, 4, 0.8);
+} */
 
 
 
