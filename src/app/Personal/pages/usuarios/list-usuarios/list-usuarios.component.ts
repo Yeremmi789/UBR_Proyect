@@ -26,4 +26,20 @@ export class ListUsuariosComponent implements OnInit {
         this.usuarios = resp;
       });
   }
+
+  usuarioSeleccionado: any; // Variable para almacenar el usuario seleccionado
+
+  editarUsuarioPorId(id: number) {
+    this.servicio.obtenerUsuarioPorId(id).subscribe(usuario => {
+      // Aquí puedes realizar cualquier acción adicional con el usuario obtenido, como abrir un formulario de edición con los datos del usuario seleccionado
+      // this.usuarios = usuario;
+      this.router.navigate(['/Usuarios/editar', id]);
+    });
+  }
+
+  editarUsuario(usuarioId: number) {
+    // this.router.navigate(['/Usuarios/editar', usuarioId]);
+    this.router.navigate(['/personal/Usuarios/editar', usuarioId]);
+  }
+
 }

@@ -32,6 +32,7 @@ import { RouterModule } from '@angular/router';
 import { RegistrarComponent } from './pages/paciente/registrar/registrar.component';
 import { CrearComponent } from './pages/citas/crear/crear.component';
 import { ListUsuariosComponent } from './pages/usuarios/list-usuarios/list-usuarios.component';
+import { EditUsuarioComponent } from './pages/usuarios/edit-usuario/edit-usuario.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { ListUsuariosComponent } from './pages/usuarios/list-usuarios/list-usuar
     RegistrarComponent,
     CrearComponent,
     ListUsuariosComponent,
+    EditUsuarioComponent,
   ],
   imports: [
     CommonModule,

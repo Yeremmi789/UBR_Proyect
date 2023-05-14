@@ -81,13 +81,6 @@ export class RegistroComponent implements OnInit{
       return { 'invalidEmail': true };
     }
 
-    // noGmail(control: FormControl) {
-    //   if (control.value && control.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
-    //     return null;
-    //   }
-    //   return { 'invalidEmail': true };
-    // }
-
     validateSelectOption(control: AbstractControl): { [key: string]: any } | null {
       if (control.value === 'Seleccione especialidad') {
         return { invalidOption: true };

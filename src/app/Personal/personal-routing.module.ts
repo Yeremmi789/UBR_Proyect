@@ -14,6 +14,7 @@ import { RegistrarComponent } from './pages/paciente/registrar/registrar.compone
 import { RegistroComponent } from '../auth/registro/registro.component';
 import { CrearComponent } from './pages/citas/crear/crear.component';
 import { ListUsuariosComponent } from './pages/usuarios/list-usuarios/list-usuarios.component';
+import { EditUsuarioComponent } from './pages/usuarios/edit-usuario/edit-usuario.component';
 
 
 const routes: Routes = [
@@ -23,8 +24,9 @@ const routes: Routes = [
       {path:'', component:BienvenidaComponent, pathMatch: 'full'},
       {path:'citas', 
       children:[
-        {path:'**', redirectTo:'mostrar'},  
+        // {path:'**', redirectTo:'mostrar'},  
         {path:'mostrar', component:MostrarComponent},
+        {path:'agendar', component:CrearComponent},
         
       ]
     },
@@ -50,6 +52,7 @@ const routes: Routes = [
           {path:'ver', component:PacienteComponent},
           { path: 'registrar', component: RegistrarComponent },
           { path: 'addCitas', component: CrearComponent, },
+          {path: 'editar/:id', component: EditUsuarioComponent},
           {path:'listado', component:ListUsuariosComponent,
           canActivate: [RolesGuard], canLoad:[RolesGuard],
           data: {roles: [Role.Admin]}

@@ -42,4 +42,13 @@ export class UsuariosService {
       catchError(err => of(false))
     );
   }
+
+  obtenerUsuarioPorId(id: number):Observable<any>{
+    const link  = `${this.API_Laravel}/editUsuario/${id}`;
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.ClienteHttp_XD.get<Usuario>(link, {headers});
+  }
+
+
 }

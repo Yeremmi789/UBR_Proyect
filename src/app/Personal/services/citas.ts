@@ -1,6 +1,8 @@
 export interface citaI{
-    idCita:String;
-    id_paciente:String;
-    fecha:String;
-    teapeuta:String;
+    id:string;
+    descripcion:string;
+    asunto:string;
+    fecha:Date;
+    paciente_id:number;
+    terapeuta_id:number;
 }

@@ -1,0 +1,50 @@
+<app-nav-logged></app-nav-logged>
+
+<h1>Editar Usuario</h1>
+
+<div class="form-container">
+    <form>
+        <div>
+            <label>Nombre:</label>
+            <input type="text" [(ngModel)]="datos.name" name="nombre" />
+            <!-- <input type="text" [(ngModel)]="nombre" name="nombre" /> -->
+
+        </div>
+
+        <div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" [(ngModel)]="datos.apellido_paterno" name="apellido" required>
+        </div>
+
+        <div>
+            <label>Correo electrónico:</label>
+            <input type="email" [(ngModel)]="datos.correo" name="correo" />
+        </div>
+
+        <div class="col-md-6 padding_XD">
+            <label class="form-label">Roll</label>
+            <select formControlName="roll" class="form-control " name="" id="roll">
+                <!-- <option class="container-fluid" selected>Selecciona el nuevo rol</option> -->
+                <option class="container-fluid" *ngFor="let item of datos" [ngValue]="item.roles_id">{{item.roles_id}}</option>
+
+                <option value="1">Admin</option>
+                <option value="2">Usuario</option>
+            </select>
+
+            <div class="alert alert-danger mt-2"
+                *ngIf="this.formRegistro.get('roll')?.invalid && ( formRegistro.get('roll')?.dirty || formRegistro.get('roll')?.touched)">
+                <div *ngIf="this.formRegistro.get('roll')?.errors?.['required']">Seleccion obligatoria</div>
+                <div *ngIf="this.formRegistro.get('roll')?.hasError('invalidOption')">Seleción no válida</div>
+            </div>
+            <div *ngIf="formRegistro.get('roll')?.valid && (formRegistro.get('roll')?.dirty || formRegistro.get('roll')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+
+        <div>
+            <button type="submit">Guardar</button>
+        </div>
+    </form>
+</div>
+<app-footer></app-footer>

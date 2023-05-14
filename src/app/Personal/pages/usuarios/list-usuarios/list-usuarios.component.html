@@ -33,7 +33,7 @@
         <table class="table w-100">
             <thead>
                 <tr>
-                    <!-- <th scope="col">#</th> -->
+                    <th scope="col">#</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido_paterno</th>
                     <th scope="col">Apellido_materno</th>
@@ -47,6 +47,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let usuario of usuarios">
+                    <td>{{ usuario.id}}</td>
                     <td>{{ usuario.name }}</td>
                     <td>{{ usuario.apellido_paterno }}</td>
                     <td>{{ usuario.apellido_materno }}</td>
@@ -54,8 +55,10 @@
                     <td>{{ usuario.terapia }}</td>
                     <td>{{ usuario.rol }}</td>
                     <td >
-                        <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-                            <mat-icon>edit</mat-icon>
+                        <!-- <button routerLink="/personal/Usuarios/editar" (click)="editarUsuarioPorId(usuario.id)"  mat-mini-fab color="primary" aria-label="Example icon button with a menu icon"> -->
+                        <button (click)="editarUsuario(usuario.id)"  mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                        <!-- <button routerLink="/personal/Usuarios/editar/{{usuario.id}}" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon"> -->
+                            <!-- <mat-icon>edit</mat-icon> -->
                         </button>
                         <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
                             <mat-icon>remove_red_eye</mat-icon>
