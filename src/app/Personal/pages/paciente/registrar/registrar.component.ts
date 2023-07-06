@@ -63,7 +63,7 @@ export class RegistrarComponent {
         // this.mensaje.success(":)","Usuario registrado",{
         //   timeOut:5000,
         // });
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/personal/Pacientes/registrar');
         this.completo();
         console.log('Toastr ejecutado');
       },

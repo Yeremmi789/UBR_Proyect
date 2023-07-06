@@ -1,92 +1,172 @@
-<div class="card">
-    <div class="card-body">
-        <h1>Registro de citas UBR</h1>
-        <form [formGroup]="formRegistro" (ngSubmit)="procesar()">
-            <div class="col-md-4 padding_XD">
-                <label for="text" class="form-label">Usuario</label>
-                <input type="text" class="form-control" formControlName="asunto" placeholder="Nombre de usuario"
-                    [(ngModel)]="asunto" required>
-                <div class="alert alert-danger mt-2"
-                    *ngIf="formRegistro.get('asunto')?.invalid && (formRegistro.get('asunto')?.dirty || formRegistro.get('asunto')?.touched)"
-                    class="alert alert-danger mt-2">
-                    <div *ngIf="this.formRegistro.get('asunto')?.errors?.['required']">El campo es obligatorio.</div>
-                    <div *ngIf="this.formRegistro.get('asunto')?.errors?.['pattern']">El nombre debe contener solo
-                        letras.</div>
-                    <div *ngIf="this.formRegistro.get('asunto')?.errors?.['minlength']">El nombre debe contener al menos
-                        3 letras</div>
-                    <!-- la validacion debe estar en minusculas para se reconocido y mostrar el mensaje en la interfaz :D-->
-                    <div *ngIf="this.formRegistro.get('asunto')?.errors?.['maxlength']">El campo debe excede de
-                        caracteres (30)</div>
-                </div>
-                <div *ngIf="formRegistro.get('asunto')?.valid && (formRegistro.get('asunto')?.dirty || formRegistro.get('asunto')?.touched)"
-                    class="alert alert-success mt-2">
-                    El campo es válido
+<app-nav-logged></app-nav-logged>
+<div class="espacio_nav">
+</div>
+<div class="container" style="padding-top: 15px;">
+
+    <h2>Registrar Cita</h2>
+    <form class="row g-3 login" [formGroup]="formRegistro" (ngSubmit)="registrarCita()">
+        <div class="col-md-6 padding_XD">
+
+            <label for="text" class="form-label">Area afectada</label>
+            <input type="text" class="form-control" formControlName="asunto" placeholder="Cabeza"
+                [(ngModel)]="asunto" required>
+            <div class="alert alert-danger mt-2"
+                *ngIf="formRegistro.get('asunto')?.invalid && (formRegistro.get('asunto')?.dirty || formRegistro.get('asunto')?.touched)"
+                class="alert alert-danger mt-2">
+                <div *ngIf="this.formRegistro.get('asunto')?.errors?.['required']">El campo es obligatorio.</div>
+                <div *ngIf="this.formRegistro.get('asunto')?.errors?.['pattern']">El nombre debe contener solo
+                    letras.</div>
+                <div *ngIf="this.formRegistro.get('asunto')?.errors?.['minlength']">El nombre debe contener al menos
+                    3 letras</div>
+                <!-- la validacion debe estar en minusculas para se reconocido y mostrar el mensaje en la interfaz :D-->
+                <div *ngIf="this.formRegistro.get('asunto')?.errors?.['maxlength']">El campo debe excede de
+                    caracteres (30)</div>
+            </div>
+            <div *ngIf="formRegistro.get('asunto')?.valid && (formRegistro.get('asunto')?.dirty || formRegistro.get('asunto')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+        <div class="col-md-6 padding_XD">
+            <label for="text" class="form-label">Especificación</label>
+            <input type="text" class="form-control" formControlName="descripcion" placeholder="Paralisis Facial"
+                [(ngModel)]="descripcion">
+            <div class="alert alert-danger mt-2"
+                *ngIf="this.formRegistro.get('descripcion')?.invalid && ( formRegistro.get('descripcion')?.dirty || formRegistro.get('descripcion')?.touched)">
+                <!-- <div *ngIf="this.formRegistro.get('descripcion')?.errors?.['required']">El campo es obligatorio
+                    </div> -->
+                <div *ngIf="this.formRegistro.get('descripcion')?.errors?.['pattern']">El campo debe contener solo
+                    letras.</div>
+                <div *ngIf="this.formRegistro.get('descripcion')?.errors?.['minlength']">El campo debe contener al
+                    menos 3 letras</div>
+                <div *ngIf="this.formRegistro.get('descripcion')?.errors?.['maxlength']">El campo debe excede de
+                    caracteres (30)</div>
+            </div>
+            <div *ngIf="formRegistro.get('descripcion')?.valid && (formRegistro.get('descripcion')?.dirty || formRegistro.get('descripcion')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+
+        <!-- <input type="text" formControlName="paciente" [(ngModel)]="consulta" (input)="buscarPacientes()" /> -->
+        <!-- Mostrar los resultados de búsqueda en tiempo real -->
+        <!--- se puede usar si se tiene un modulo en blanco y queremos que aparezcan todos los resultados buscados una vez hayamos hecho la busqueda (se veean las busquedas hechas anteriormente) ---->
+        <!-- <ul *ngIf="resultadosPacientes.length > 0 && consulta !== '' "> -->
+        <!-- se pone && consulta !==''  para que si tiene texto aparezca ---->
+        <!-- <li *ngFor="let resultado of resultadosPacientes" id="hoverRestBusqueda"(click)="seleccionarPaciente(resultado)"> -->
+        <!-- {{ resultado.nombre+ ' ' + resultado.apellidoP+ ' ' + resultado.apellidoM }} -->
+        <!--- dejamos espacios para que no se vean pegados XD--->
+        <!-- </li> -->
+        <!-- </ul> -->
+
+        <div class="col-md-4 padding_XD">
+            <label for="text" class="form-label">Paciente</label>
+            <input type="text" class="form-control" formControlName="paciente" [(ngModel)]="consulta"
+                (input)="buscarPacientes()" required>
+
+            <div id="contenedorResultados" *ngIf="resultadosPacientes.length > 0 && consulta !== '' ">
+                <li id="tituloResultado">Resultados</li>
+                <!-- se pone && consulta !==''  para que si tiene texto aparezca ---->
+                <div *ngFor="let resultado of resultadosPacientes" id="hoverRestBusqueda"
+                    (click)="seleccionarPaciente(resultado)">
+                    <!-- {{ resultado.nombre }} -->
+                    {{ resultado.nombre+ ' ' + resultado.apellidoP+ ' ' + resultado.apellidoM }}
+                    <!--- dejamos espacios para que no se vean pegados XD--->
                 </div>
             </div>
-            <div class="col-md-4 padding_XD">
-                <label for="text" class="form-label">Apellido Paterno</label>
-                <input type="text" class="form-control" formControlName="descripcion" placeholder="Apellido paterno"
-                    [(ngModel)]="descripcion" required>
-                <div class="alert alert-danger mt-2"
-                    *ngIf="this.formRegistro.get('descripcion')?.invalid && ( formRegistro.get('descripcion')?.dirty || formRegistro.get('descripcion')?.touched)">
-                    <div *ngIf="this.formRegistro.get('descripcion')?.errors?.['required']">El campo es obligatorio
-                    </div>
-                    <div *ngIf="this.formRegistro.get('descripcion')?.errors?.['pattern']">El campo debe contener solo
-                        letras.</div>
-                    <div *ngIf="this.formRegistro.get('descripcion')?.errors?.['minlength']">El campo debe contener al
-                        menos 3 letras</div>
-                    <div *ngIf="this.formRegistro.get('descripcion')?.errors?.['maxlength']">El campo debe excede de
-                        caracteres (30)</div>
+            <div class="alert alert-danger mt-2"
+                *ngIf="this.formRegistro.get('paciente')?.invalid && ( formRegistro.get('paciente')?.dirty || formRegistro.get('paciente')?.touched)">
+                <div *ngIf="this.formRegistro.get('paciente')?.errors?.['required']">El campo es obligatorio
                 </div>
-                <div *ngIf="formRegistro.get('descripcion')?.valid && (formRegistro.get('descripcion')?.dirty || formRegistro.get('descripcion')?.touched)"
-                    class="alert alert-success mt-2">
-                    El campo es válido
-                </div>
+                <div *ngIf="this.formRegistro.get('paciente')?.errors?.['pattern']">El campo debe contener solo
+                    letras.</div>
+                <!-- <div *ngIf="this.formRegistro.get('paciente')?.errors?.['minlength']">El campo debe contener al
+                    menos 3 letras</div> -->
+                <!-- <div *ngIf="this.formRegistro.get('paciente')?.errors?.['maxlength']">El campo debe excede de
+                    caracteres (30)</div> -->
             </div>
 
-            <input type="text" formControlName="paciente" [(ngModel)]="consulta" (input)="buscarPacientes()" />
-
-            <!-- Mostrar los resultados de búsqueda en tiempo real -->
-            <ul *ngIf="resultadosPacientes.length > 0">
-                <li *ngFor="let resultado of resultadosPacientes" (click)="seleccionarPaciente(resultado)">
-                    {{ resultado.nombre }}
-                </li>
-            </ul>
-
-            <div class="mb-2">
-                <label class="form-label">Fecha</label>
-                <input type="date" formControlName="fecha" class="form-control" placeholder="Nombre">
-
-            </div>
-            <div class="col-md-6 padding_XD">
-                <label for="password" class="form-label">Especialista</label>
-
-                <select class="form-select" formControlName="terapia_id"
-                    (change)="verSeleccion = formRegistro.get('terapia_id')?.value || formRegistro.get('terapia_id')?.pristine"
-                    aria-label="Default select example">
-                    <option class="container-fluid" selected>Seleccione terapeuta</option>
-                    <option class="container-fluid" *ngFor="let item of TiposList" [ngValue]="item.id">{{item.nombre}}
-                    </option>
-
-                </select>
-                <div>Valor (id de la terapia): {{ verSeleccion}}</div>
-                <div class="alert alert-danger mt-2"
-                    *ngIf="this.formRegistro.get('terapia_id')?.invalid && ( formRegistro.get('terapia_id')?.dirty || formRegistro.get('terapia_id')?.touched)">
-                    <div *ngIf="this.formRegistro.get('terapia_id')?.errors?.['required']">Seleccion obligatoria</div>
-                    <div *ngIf="this.formRegistro.get('terapia_id')?.hasError('invalidOption')">Seleción no válida</div>
+            <!-- ----------------------- -->
+            <div *ngIf="formRegistro.get('paciente')?.invalid && formRegistro.get('paciente')?.dirty"
+                class="alert alert-danger">
+                <div *ngIf="formRegistro.get('paciente')?.hasError('required')">El campo paciente es obligatorio.
                 </div>
-                <div *ngIf="formRegistro.get('terapia_id')?.valid && (formRegistro.get('terapia_id')?.dirty || formRegistro.get('terapia_id')?.touched)"
-                    class="alert alert-success mt-2">
-                    El campo es válido
+                <div *ngIf="formRegistro.get('paciente')?.hasError('pacienteNoExistente')">El paciente no existe.
                 </div>
             </div>
+            <!-- ----------------------- -->
 
-            <button class="btn btn-primary" type="submit" [disabled]="formCitas.invalid">
-                Enviar
-            </button>
-            <button class="btn btn-secondary">
-                Cancelar
-            </button>
-        </form>
-    </div>
+            <div *ngIf="formRegistro.get('paciente')?.valid && (formRegistro.get('paciente')?.dirty || formRegistro.get('paciente')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+            <!-- Mostrar resultados de las busquedas :D -->
+
+        </div>
+
+        <div class="col-md-4 padding_XD">
+            <label for="text" class="form-label">Apellido Paterno</label>
+            <input type="text" [disabled]="desactivado" class="form-control" formControlName="apellidoPaterno" required>
+        </div>
+        <div class="col-md-4 padding_XD">
+            <label for="text" class="form-label">Apellido Materno</label>
+            <input type="text" [disabled]="desactivado" class="form-control" formControlName="apellidoMaterno" required>
+        </div>
+
+        <div class="col-md-4 padding_XD">
+            <label class="form-label">Fecha</label>
+            <input type="date" formControlName="fecha" class="form-control" placeholder="fecha">
+            <div
+                *ngIf="this.formRegistro.get('fecha')?.invalid && ( formRegistro.get('fecha')?.dirty || formRegistro.get('fecha')?.touched)">
+                <div *ngIf="this.formRegistro.get('fecha')?.errors?.['required']">El campo es obligatorio
+                </div>
+                <div *ngIf="this.formRegistro.get('fecha')?.errors?.['fechaInvalida']">La fecha no puede ser anterior a
+                    la actual
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 padding_XD">
+            <label class="form-label">Hora</label>
+            <input type="time" formControlName="hora" class="form-control" placeholder="Nombre">
+            <div
+                *ngIf="this.formRegistro.get('hora')?.invalid && ( formRegistro.get('hora')?.dirty || formRegistro.get('hora')?.touched)">
+                <div *ngIf="this.formRegistro.get('hora')?.errors?.['required']">El campo es obligatorio
+                </div>
+                <div *ngIf="this.formRegistro.get('hora')?.errors?.['horaInvalida']">La hora no puede ser anterior a la
+                    actual
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 padding_XD">
+            <label for="password" class="form-label">Especialista</label>
+
+            <select class="form-select" formControlName="terapia_id"
+                (change)="verSeleccion = formRegistro.get('terapia_id')?.value || formRegistro.get('terapia_id')?.pristine"
+                aria-label="Default select example">
+                <option class="container-fluid" selected>Seleccione terapeuta</option>
+                <option class="container-fluid" *ngFor="let item of TiposList" [ngValue]="item.id">{{item.nombre}}
+                </option>
+
+            </select>
+            <div>Valor (id de la terapia): {{ verSeleccion}}</div>
+            <div class="alert alert-danger mt-2"
+                *ngIf="this.formRegistro.get('terapia_id')?.invalid && ( formRegistro.get('terapia_id')?.dirty || formRegistro.get('terapia_id')?.touched)">
+                <div *ngIf="this.formRegistro.get('terapia_id')?.errors?.['required']">Seleccion obligatoria</div>
+                <div *ngIf="this.formRegistro.get('terapia_id')?.hasError('invalidOption')">Seleción no válida</div>
+            </div>
+            <div *ngIf="formRegistro.get('terapia_id')?.valid && (formRegistro.get('terapia_id')?.dirty || formRegistro.get('terapia_id')?.touched)"
+                class="alert alert-success mt-2">
+                El campo es válido
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="formRegistro.invalid">
+            Enviar
+        </button>
+        <button class="btn btn-secondary">
+            Cancelar
+        </button>
+    </form>
 </div>

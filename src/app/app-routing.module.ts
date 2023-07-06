@@ -19,7 +19,8 @@ import { RegistrarComponent } from './Personal/pages/paciente/registrar/registra
 import { ResetPasswordComponent } from './principal/pages/reset-password/reset-password.component';
 import { PreguntaResetComponent } from './principal/pages/pregunta-reset/pregunta-reset.component';
 
-
+// autocompletado (complemento para busquedas)
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 
 
 
@@ -83,8 +84,7 @@ const routes: Routes = [
 @NgModule({
 
   imports: [
-
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   exports: [
     RouterModule

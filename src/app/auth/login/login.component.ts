@@ -55,7 +55,6 @@ export class LoginComponent implements OnInit{
               location.reload();
               this.mensaje.success(":)","Bienvenido",{
                 timeOut:5000,
-                // positionClass: 'toast-top-right',
               });
             });
           }else{

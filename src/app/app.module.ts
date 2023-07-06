@@ -45,6 +45,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
+// autocompletado (complemento para busquedas)
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -72,8 +75,8 @@ import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     BreadcrumbModule,
     ToastrModule.forRoot(),
-
-
+    TypeaheadModule.forRoot(),
+    NgbTypeaheadModule,
 
     LayoutModule,
     MatToolbarModule,

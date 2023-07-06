@@ -19,3 +19,10 @@ export interface Token{
     name?:string;
     email?:string;
 }
+
+export interface Pacientess {
+    nombre: string;
+    apellidoP: string;
+    apellidoM: string;
+    // otras propiedades
+  }

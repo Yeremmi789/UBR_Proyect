@@ -1,0 +1,48 @@
+.seleccionado {
+    background-color: #ccc;
+}
+
+#tituloResultado{
+    list-style: none;
+    text-align: center;
+    padding: 3px 0px;
+}
+
+#contenedorResultados{
+    margin: 0;
+    /* padding: 3px 5px; */
+    border-radius: 5px;
+    background-color: dimgrey;
+    color: #ffff;
+
+    position: absolute;
+    z-index: 101;
+    /* width: 100%; */
+    width: 50%;
+}
+
+#hoverRestBusqueda{
+    list-style: none;
+    font-size: 18px;
+    height: 30px;
+    padding: 5px 20px;
+    width: 100%;
+}
+#hoverRestBusqueda:hover{
+    /* background-color: aquamarine; */
+    background-color: rgb(206, 206, 206);
+    color: #000000;
+    cursor: pointer;
+    width: 100%;
+    height: 30px;
+}
+
+.container {
+    position: relative;
+    width: 650px;
+    height: 400px;
+}
+
+.padding_XD{
+    margin: 5px 0 5px 0;
+}

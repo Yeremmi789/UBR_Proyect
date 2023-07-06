@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Terapeutas } from 'src/app/auth/services/registro/registro';
 import { citaI } from '../citas';
 
@@ -28,11 +28,10 @@ export class CitasService {
     return this.http.get('/api/usuarios?consulta=' + consulta);
   }
 
-  registro(datosCitas:citaI){
+  anadirCita(datosCitas:citaI){
     const ruta_API = `${this.API_Laravel}/addCitas`;
     return this.http.post(ruta_API + "?store=1",datosCitas);
   }
-
 
   buscarPacientes(consulta: string): Observable<any> {
     const url = `${this.API_Laravel}/verEnfermo`;
@@ -40,6 +39,10 @@ export class CitasService {
     return this.http.post<any>(url, body);
   }
 
-
+  // Falta crear el controlador en laravel
+  obtenerCitas():Observable<any[]>{
+    const ruta_API = `${this.API_Laravel}/allCitasDisponibles`;
+    return this.http.get<any>(ruta_API);
+  }
 
 }

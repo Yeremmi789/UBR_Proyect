@@ -28,6 +28,15 @@ export class ListadoComponent implements OnInit {
   
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+
+
+    searchTerm: string = '';
+  filtroPrecio: number = 1000;
+  filtro: string = '';
+  filtroSeleccionado: string = '';
+  categorias: string[] = ['Hombre', 'Mujer'];
+  filtroCategoria:string = '';
+  
   
   Paciente:any;
 

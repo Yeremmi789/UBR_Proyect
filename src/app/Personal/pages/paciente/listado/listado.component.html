@@ -1,27 +1,60 @@
 <app-nav-logged></app-nav-logged>
-<div class="centrar">
-    <h1>hola mundo</h1>
-    <button (click)="logout()">Cerrar Sesión</button>
+<div class="espacio_nav">
 </div>
-<!-- <app-barra-lateral></app-barra-lateral> -->
+
+<div class="navbar">
+    <ol class="breadcrumb" style="position: absolute; left: 5%;">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Productos</li>
+    </ol>
+    <div class="search-bar">
+        <img src="assets/img/lupa1.png" alt="">
+        <input type="text" name="" [(ngModel)]="searchTerm" placeholder="Buscar por título" id="">
+    </div>
+
+    <div class="filter-bar">
+        <label for="filtro">Filtrar por:</label>
+        <select class="select-colors" name="filtro" id="filtro" [(ngModel)]="filtro">
+            <option value="">Todos</option>
+            <option value="categoria">Categoría</option>
+            <option value="precio">Precio</option>
+        </select>
+
+        <div *ngIf="filtro === 'categoria'">
+            <select class="select-colors" name="filtroCategoria" id="filtroCategoria" [(ngModel)]="filtroCategoria">
+                <option value="">Todas las categorías</option>
+                <!-- <option *ngFor="let categoria of categorias" [value]="categoria">{{categoria}}</option> -->
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+            </select>
+        </div>
+
+        <div class="select-colors" *ngIf="filtro === 'precio'" id="barra-input">
+            <label for="filtro-precio" style="font-size: 15px;">Precio máximo:</label>
+            <input type="number" name="filtro-precio" id="filtro-precio" [(ngModel)]="filtroPrecio">
+        </div>
+    </div>
+</div>
+
+<div class="espacio_nav">
+</div>
+
 <div class="cajaOpciones animated fadeIn">
     <div class="cajaElementos">
         <h1>Listado de Pacientes</h1>
-        <div class="buscador">
-            <!-- <form class="d-flex w-100">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form> -->
+        <!-- <div class="buscador">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <form class="d-flex">
                     <input class="form-control me-2" type="text" name="filterPost" [(ngModel)]="filterPost">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </nav>
-        </div>
+        </div> -->
     </div>
     <div class="botones animated fadeIn">
-        <button class="agg">Agregar</button>
+        <button class="btn btn-primary" type="submit" routerLink="/personal/Pacientes/registrar">
+            Agregar
+        </button>
         <!-- <button class="xd">xd</button> -->
     </div>
 </div>
