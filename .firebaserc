@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "complementos-9ce90": {
+      "hosting": {
+        "proyecto": [
+          "complementos-9ce90"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "complementos-9ce90"
+  }
+}
